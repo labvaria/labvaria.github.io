@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Industrial Water Treatment | PT. Brilian Inovatek Nusantara</title>
+<meta name="description" content="Sistem water treatment industri skala besar dari PT. Brilian Inovatek Nusantara. Solusi pengolahan air untuk pabrik, gedung, hotel, dan manufaktur di Indonesia."/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#1a3c5e;--primary-dark:#142d47;--accent:#2e7d9f;--accent2:#e8f4f8;
+  --ind:#c47a1a;--ind2:#fef3e2;--ind3:#fde0a0;
+  --light:#f4f7fa;--white:#fff;--text:#2d2d2d;--muted:#6b7a8d;--border:#dde3ea;
+  --font:'Segoe UI',Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--white)}
+
+/* ── NAVBAR ── */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:50px;width:auto;object-fit:contain}
+.nav-logo-fallback{font-size:.95rem;font-weight:700;color:var(--primary);display:none}
+.nav-tagline-main{font-size:.72rem;color:var(--accent);letter-spacing:.08em;font-style:italic;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:4px}
+.nav-menu{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:flex;align-items:center;gap:4px;text-decoration:none;color:var(--text);font-size:.86rem;font-weight:500;padding:8px 13px;border-radius:5px;transition:background .2s,color .2s;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--accent2);color:var(--primary)}
+.nav-menu>li>a.active{font-weight:700}
+.nav-menu>li>a svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.nav-menu>li:hover>a svg{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.10);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:100}
+.nav-menu>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:.84rem;padding:9px 12px;border-radius:5px;transition:background .15s;white-space:nowrap}
+.dropdown a:hover{background:var(--accent2);color:var(--primary)}
+.dropdown a svg{width:14px;height:14px;stroke:var(--accent);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dropdown-divider{border:none;border-top:1px solid var(--border);margin:4px 0}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:var(--white);font-size:.84rem;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;margin-left:10px;transition:background .2s}
+.nav-cta:hover{background:var(--primary-dark)}
+.nav-cta svg{width:15px;height:15px;fill:currentColor}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--primary);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:12px 24px 20px}
+.mobile-menu.open{display:block}
+.mobile-menu ul{list-style:none}
+.mobile-menu ul li{border-bottom:1px solid var(--border)}
+.mobile-menu ul li>a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;text-decoration:none;color:var(--text);font-size:.9rem;font-weight:500}
+.mob-sub{display:none;padding:4px 0 8px 16px;list-style:none}
+.mob-sub.open{display:block}
+.mob-sub li a{display:block;padding:8px 0;font-size:.84rem;color:var(--muted);text-decoration:none}
+.mob-sub li a:hover{color:var(--primary)}
+.mob-cta{display:block;margin-top:14px;background:var(--primary);color:var(--white);text-align:center;padding:11px;border-radius:5px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+/* ── HERO ── */
+.hero{position:relative;width:100%;height:460px;overflow:hidden}
+@media(max-width:768px){.hero{height:340px}}
+@media(max-width:480px){.hero{height:280px}}
+.hero-track{display:flex;height:100%;transition:transform .8s cubic-bezier(.77,0,.18,1)}
+.hero-slide{flex:0 0 100%;position:relative;overflow:hidden}
+.hero-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 80px;max-width:680px}
+@media(max-width:768px){.hero-overlay{padding:0 32px}}
+@media(max-width:480px){.hero-overlay{padding:0 20px}}
+.hero-badge{display:inline-block;background:rgba(196,122,26,.88);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px}
+.hero-title{font-size:2.1rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+@media(max-width:768px){.hero-title{font-size:1.55rem}}
+@media(max-width:480px){.hero-title{font-size:1.25rem}}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.88);line-height:1.65;text-shadow:0 1px 6px rgba(0,0,0,.3)}
+.hero-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:background .25s,transform .25s}
+.hero-dot.active{background:#fff;transform:scale(1.3)}
+.hero-prog{position:absolute;bottom:0;left:0;height:3px;background:rgba(196,122,26,.9);width:0;z-index:10}
+
+/* ── BREADCRUMB ── */
+.bc-wrap{background:var(--light);border-bottom:1px solid var(--border)}
+.bc{max-width:1200px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+.bc a{color:var(--muted);text-decoration:none}.bc a:hover{color:var(--primary)}
+.bc svg{width:10px;height:10px;stroke:var(--muted);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bc strong{color:var(--primary)}
+
+/* ── SOFT OPENING ── */
+.soft-open{background:var(--white);padding:60px 24px 52px;border-bottom:1px solid var(--border)}
+.soft-inner{max-width:860px;margin:0 auto;text-align:center}
+.soft-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ind);border-left:3px solid var(--ind);padding-left:10px;margin-bottom:14px;text-align:left}
+.soft-title{font-size:1.85rem;font-weight:800;color:var(--primary);line-height:1.3;margin-bottom:16px}
+.soft-desc{font-size:.95rem;color:#555;line-height:1.85;margin-bottom:32px}
+.soft-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--ind);line-height:1}
+.stat-lbl{font-size:.75rem;color:var(--muted);margin-top:4px}
+@media(max-width:480px){.soft-title{font-size:1.4rem}.soft-stats{gap:24px}}
+
+/* ── PRODUCT SECTION ── */
+.prod-section{background:var(--ind2);padding:56px 24px 80px}
+.prod-inner{max-width:1200px;margin:0 auto}
+.prod-sec-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ind);border-left:3px solid var(--ind);padding-left:10px;margin-bottom:10px}
+.prod-sec-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin-bottom:36px}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:960px){.prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.prod-grid{grid-template-columns:1fr}}
+
+/* card */
+.p-card{background:var(--white);border:1px solid #f0ddb8;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.p-card:hover{box-shadow:0 10px 32px rgba(196,122,26,.13);transform:translateY(-4px)}
+.p-card-img-ph{width:100%;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--ind2),var(--ind3));flex-shrink:0}
+.p-card-img-ph svg{width:44px;height:44px;stroke:#a05c10;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.6}
+.p-card-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#a05c10;opacity:.5}
+.p-card-body{padding:15px 16px 18px;display:flex;flex-direction:column;flex:1}
+.p-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.p-card-name{font-size:.9rem;font-weight:700;color:var(--primary);line-height:1.35;flex:1;min-width:0}
+.p-card-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.p-card-price{font-size:.82rem;font-weight:700;color:var(--ind);white-space:nowrap}
+.p-card-cta{display:inline-flex;align-items:center;gap:5px;background:var(--ind);color:#fff;font-size:.72rem;font-weight:700;padding:6px 12px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.p-card-cta:hover{background:#25D366}
+.p-card-cta svg{width:11px;height:11px;fill:currentColor;flex-shrink:0}
+.p-card-desc{font-size:.78rem;color:#666;line-height:1.65;margin-bottom:12px;flex:1}
+.p-card-specs{list-style:none;display:flex;flex-direction:column;gap:5px}
+.p-card-specs li{display:flex;align-items:flex-start;gap:6px;font-size:.74rem;color:var(--muted);line-height:1.4}
+.p-card-specs li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ind);flex-shrink:0;margin-top:4px}
+
+/* ── FLOATING CTA ── */
+.float-cta{position:fixed;bottom:28px;right:28px;z-index:998;opacity:0;pointer-events:none;transition:opacity .3s}
+.float-cta.show{opacity:1;pointer-events:auto}
+.float-cta a{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:.88rem;padding:13px 20px;border-radius:50px;box-shadow:0 6px 24px rgba(37,211,102,.4);text-decoration:none;transition:background .2s,transform .2s}
+.float-cta a:hover{background:#1da851;transform:translateY(-2px)}
+.float-cta a svg{width:20px;height:20px;fill:currentColor}
+.float-pulse{position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:#ff4757}
+.float-pulse::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:rgba(255,71,87,.35);animation:fp 1.8s infinite}
+@keyframes fp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:0}}
+@media(max-width:480px){.float-cta a span{display:none}.float-cta a{padding:14px;border-radius:50%}}
+
+/* ── FOOTER ── */
+footer{background:#111d2b;color:rgba(255,255,255,.75)}
+.footer-main{max-width:1200px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.4fr 1px 1fr 1px 1fr;gap:40px;align-items:start}
+.fvdiv{background:rgba(255,255,255,.1);height:100%;min-height:120px}
+.fcol-lbl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.fcol-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.6)}
+.f-addr{font-style:normal;font-size:.83rem;line-height:1.9;color:rgba(255,255,255,.65)}
+.f-contacts{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.f-lnk{font-size:.83rem;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:8px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08)}
+.fbot-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.f-copy{font-size:.75rem;color:rgba(255,255,255,.4)}
+@media(max-width:900px){.nav-menu,.nav-cta{display:none}.hamburger{display:flex}}
+@media(max-width:768px){.footer-main{grid-template-columns:1fr;gap:28px}.fvdiv{display:none}}
+@media(max-width:480px){.nav-inner{height:60px}.nav-logo img{height:42px}.fbot-inner{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="/water-treatment/" class="nav-logo">
+      <img src="https://i.imgur.com/ul8N0Ny.png" alt="Logo PT. Brilian Inovatek Nusantara" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-fallback">PT. Brilian Inovatek Nusantara</span>
+      <div><span class="nav-tagline-main">Engineering ▪ Environment ▪ Innovation</span></div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="/water-treatment/">Home</a></li>
+        <li>
+          <a href="/water-treatment/product/" class="active">Product <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/water-treatment/residential/"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg>Residential Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/industrial/"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Industrial Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/reverse-osmosis/"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>Reverse Osmosis</a>
+          </div>
+        </li>
+        <li><a href="/water-treatment/projects/">Projects</a></li>
+        <li><a href="/water-treatment/faq/">FAQ</a></li>
+        <li><a href="/water-treatment/article/">Article</a></li>
+        <li><a href="/water-treatment/contact/">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/628138006547" target="_blank" rel="noopener" class="nav-cta">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Konsultasi Gratis
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/water-treatment/">Home</a></li>
+      <li>
+        <a href="/water-treatment/product/" id="mobProdToggle" style="color:var(--primary);font-weight:700">Product <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="mob-sub" id="mobProdSub">
+          <li><a href="/water-treatment/residential/">Residential Product</a></li>
+          <li><a href="/water-treatment/industrial/" style="color:var(--primary);font-weight:700">Industrial Product</a></li>
+          <li><a href="/water-treatment/reverse-osmosis/">Reverse Osmosis</a></li>
+        </ul>
+      </li>
+      <li><a href="/water-treatment/projects/">Projects</a></li>
+      <li><a href="/water-treatment/faq/">FAQ</a></li>
+      <li><a href="/water-treatment/article/">Article</a></li>
+      <li><a href="/water-treatment/contact/">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/628138006547" target="_blank" rel="noopener" class="mob-cta">Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-track" id="heroTrack">
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80" alt="Industrial Water Treatment" loading="eager"/>
+      <div class="hero-overlay">
+        <span class="hero-badge">Industrial Water Treatment</span>
+        <h1 class="hero-title">Sistem Pengolahan Air<br>Skala Industri</h1>
+        <p class="hero-sub">Solusi water treatment kapasitas tinggi untuk pabrik, gedung komersial, hotel, dan fasilitas manufaktur di seluruh Indonesia.</p>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1400&q=80" alt="Sistem Manufaktur" loading="lazy"/>
+      <div class="hero-overlay">
+        <span class="hero-badge">Sistem Manufaktur</span>
+        <h1 class="hero-title">Dirancang untuk<br>Kebutuhan Produksi</h1>
+        <p class="hero-sub">Setiap unit dirancang sesuai spesifikasi teknis industri — kapasitas besar, efisiensi tinggi, perawatan mudah.</p>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1400&q=80" alt="Engineering Excellence" loading="lazy"/>
+      <div class="hero-overlay">
+        <span class="hero-badge">Engineering Excellence</span>
+        <h1 class="hero-title">Teknologi Terpercaya<br>untuk Standar Industri</h1>
+        <p class="hero-sub">Komponen berkualitas internasional, instalasi terstandar, dan dukungan teknis purna jual untuk keberlanjutan operasional Anda.</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-prog" id="heroProg"></div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="bc-wrap">
+  <div class="bc">
+    <a href="/water-treatment/">Home</a>
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <a href="/water-treatment/product/">Produk</a>
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <strong>Industrial</strong>
+  </div>
+</div>
+
+<!-- SOFT OPENING -->
+<section class="soft-open">
+  <div class="soft-inner">
+    <span class="soft-label">Industrial Water Treatment</span>
+    <h2 class="soft-title">Sistem Pengolahan Air Industri yang Andal dan Efisien</h2>
+    <p class="soft-desc">Kebutuhan air bersih dalam skala industri menuntut sistem yang tidak sekadar menyaring, tetapi juga andal dalam operasi berkelanjutan. PT. Brilian Inovatek Nusantara menghadirkan <strong>rangkaian sistem water treatment industri</strong> yang dirancang khusus untuk memenuhi standar teknis pabrik, gedung bertingkat, hotel, fasilitas kesehatan, dan kawasan manufaktur. Dari sistem RO kapasitas ribuan liter per jam hingga sistem filtrasi multi-stage, setiap unit dipasang oleh teknisi berpengalaman dengan komponen bergaransi dan layanan purna jual yang terstruktur.</p>
+    <div class="soft-stats">
+      <div class="stat-item"><div class="stat-num">9</div><div class="stat-lbl">Varian Produk</div></div>
+      <div class="stat-item"><div class="stat-num">100+</div><div class="stat-lbl">Instalasi Industri</div></div>
+      <div class="stat-item"><div class="stat-num">10.000+</div><div class="stat-lbl">LPH Kapasitas Maks</div></div>
+      <div class="stat-item"><div class="stat-num">Garansi</div><div class="stat-lbl">Komponen & Instalasi</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="prod-section">
+  <div class="prod-inner">
+    <span class="prod-sec-label">Pilihan Produk</span>
+    <h2 class="prod-sec-title">Rangkaian Produk Industrial Water Treatment</h2>
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- FLOATING CTA -->
+<div class="float-cta" id="floatCta">
+  <div style="position:relative">
+    <div class="float-pulse"></div>
+    <a href="https://wa.me/628138006547?text=Halo%2C%20saya%20ingin%20konsultasi%20produk%20Industrial%20Water%20Treatment" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      <span>Konsultasi Gratis</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div><p class="fcol-lbl">PT. Brilian Inovatek Nusantara</p><p class="fcol-desc">Perusahaan engineering dan solusi terintegrasi yang melayani kebutuhan industri, fasilitas komersial, dan institusi dengan kualitas teknis tinggi dan pendekatan profesional.</p></div>
+    <div class="fvdiv"></div>
+    <div>
+      <p class="fcol-lbl">Kantor</p>
+      <address class="f-addr">Jl. Cililitan Besar Nomor 72D,<br>Kel. Kramat Jati, Kec. Kramat Jati,<br>Kota Jakarta Timur, DKI Jakarta 13510</address>
+      <div class="f-contacts">
+        <a href="tel:+6281380006547" class="f-lnk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 813 800 6547</a>
+        <a href="mailto:brilianproject.in@gmail.com" class="f-lnk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>brilianproject.in@gmail.com</a>
+      </div>
+    </div>
+    <div class="fvdiv"></div>
+    <div>
+      <p class="fcol-lbl">Workshop</p>
+      <address class="f-addr">Jl. Wibawa Mukti II,<br>Kel. Jatisari, Kec. Jatiasih,<br>Kota Bekasi, Jawa Barat 17426</address>
+      <div class="f-contacts"><a href="tel:+6285771578963" class="f-lnk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 857 7157 8963</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="fbot-inner"><p class="f-copy">© 2026 PT. Brilian Inovatek Nusantara. Seluruh hak dilindungi.</p><p class="f-copy" style="letter-spacing:.06em">Engineering • Environment • Innovation</p></div></div>
+</footer>
+
+<script>
+const PRODUCTS = [
+  {id:'i1', name:'BRL RO Industri 10',          price:77999000,
+   desc:'Sistem Reverse Osmosis industri kapasitas 1.000 LPH — ideal untuk hotel, klinik, dan fasilitas komersial dengan kebutuhan air bersih harian tinggi.',
+   specs:['Kapasitas: 1.000 LPH (10 m³/hari)','Membran: Dow Filmtec / Toray','Tekanan operasi: 10–15 bar','Dilengkapi pre-filter & post-filter'],
+   icon:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>'},
+  {id:'i2', name:'BRL RO Industri 20',          price:233099000,
+   desc:'Sistem RO kapasitas besar 2.000 LPH untuk kebutuhan air proses produksi, farmasi, dan industri makanan minuman yang memerlukan kemurnian tinggi.',
+   specs:['Kapasitas: 2.000 LPH (20 m³/hari)','Membran: 4040 / 8040 spiral wound','Panel kontrol: PLC otomatis','Sistem CIP (Clean In Place)'],
+   icon:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>'},
+  {id:'i3', name:'BRL Sistem Gedung',            price:72819000,
+   desc:'Paket water treatment terintegrasi untuk gedung bertingkat, apartemen, dan perkantoran — memastikan kualitas air di seluruh lantai secara konsisten.',
+   specs:['Multimedia filter + softener','Kapasitas: 2.000–5.000 LPH','Tabung FRP: 24" × 72"','Panel otomatis + flow meter'],
+   icon:'<path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/>'},
+  {id:'i4', name:'BRL Sistem Manufaktur 100',    price:101895000,
+   desc:'Sistem pengolahan air untuk fasilitas manufaktur dengan kebutuhan air proses 10 m³/jam. Dilengkapi sistem backwash otomatis dan monitoring real-time.',
+   specs:['Kapasitas: 10.000 LPH','Filter bertingkat: 3 stage','Kontrol: Otomatis penuh','Flow meter & pressure gauge'],
+   icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>'},
+  {id:'i5', name:'BRL Industri Skala Menengah', price:148915000,
+   desc:'Solusi komprehensif untuk pabrik skala menengah — mencakup pre-treatment, filtrasi utama, dan polishing untuk air proses maupun air sanitasi.',
+   specs:['Kapasitas: 15.000–20.000 LPH','Iron removal + softener + RO','Tangki buffer 10.000 liter','SCADA monitoring opsional'],
+   icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>'},
+  {id:'i6', name:'BRL Industri Skala Besar',    price:222459000,
+   desc:'Sistem water treatment lengkap untuk industri skala besar dengan kapasitas hingga 30 m³/jam. Dirancang untuk operasi 24 jam tanpa gangguan.',
+   specs:['Kapasitas: 25.000–30.000 LPH','Multi-stage filtration system','Redundancy unit (backup)','Remote monitoring & alarm'],
+   icon:'<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>'},
+  {id:'i7', name:'BRL Industri Skala Utama',    price:427499000,
+   desc:'Flagship sistem water treatment industri untuk kawasan produksi berskala besar — integrasi penuh dari sumber air baku hingga air siap proses.',
+   specs:['Kapasitas: 50.000+ LPH','Sistem modular & expandable','DCS/PLC control system','SLA service & maintenance'],
+   icon:'<path d="M2 20h20M4 20V10l8-7 8 7v10"/><rect x="9" y="14" width="6" height="6"/>'},
+  {id:'i8', name:'BRL Sistem Filtrasi Dasar',   price:164355000,
+   desc:'Sistem filtrasi industri entry-level yang mencakup sedimentasi, filtrasi multi-media, dan desinfeksi UV — cocok untuk industri ringan dan UMKM skala besar.',
+   specs:['Kapasitas: 8.000–12.000 LPH','Sand filter + carbon filter','UV sterilizer 55W','Sistem manual & semi-otomatis'],
+   icon:'<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/>'},
+  {id:'i9', name:'BRL Sistem Filtrasi Lanjutan',price:315615250,
+   desc:'Sistem filtrasi lanjutan dengan teknologi nano-filter dan ultrafiltrasi — ideal untuk industri yang memerlukan standar kemurnian air sangat tinggi.',
+   specs:['Kapasitas: 20.000 LPH','Ultrafiltrasi (UF) membrane','TOC removal system','Kualitas air: < 1 NTU output'],
+   icon:'<circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>'},
+];
+
+function fmtPrice(p){ return 'Rp '+p.toLocaleString('id-ID'); }
+const WA = `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>`;
+
+function makeCard(p){
+  const msg = encodeURIComponent(`Halo, saya tertarik dengan produk ${p.name} (${fmtPrice(p.price)}). Mohon informasi lebih lanjut.`);
+  return `<div class="p-card">
+    <div class="p-card-img-ph"><svg viewBox="0 0 24 24">${p.icon}</svg><span>Industrial</span></div>
+    <div class="p-card-body">
+      <div class="p-card-top">
+        <h3 class="p-card-name">${p.name}</h3>
+        <div class="p-card-right">
+          <div class="p-card-price">${fmtPrice(p.price)}</div>
+          <a href="/water-treatment/industrial/${p.id}/" class="p-card-cta"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><polyline points="9 18 15 12 9 6"/></svg> Lihat Produk</a>
+        </div>
+      </div>
+      <p class="p-card-desc">${p.desc}</p>
+      <ul class="p-card-specs">${p.specs.map(s=>`<li>${s}</li>`).join('')}</ul>
+    </div>
+  </div>`;
+}
+document.getElementById('prodGrid').innerHTML = PRODUCTS.map(makeCard).join('');
+
+/* HERO SLIDER */
+(function(){
+  const track=document.getElementById('heroTrack'),slides=track.querySelectorAll('.hero-slide'),
+        dotsWrap=document.getElementById('heroDots'),bar=document.getElementById('heroProg'),DUR=5000;
+  let cur=0,timer,total=slides.length;
+  slides.forEach((_,i)=>{const d=document.createElement('button');d.className='hero-dot'+(i===0?' active':'');d.setAttribute('aria-label','Slide '+(i+1));d.onclick=()=>go(i);dotsWrap.appendChild(d);});
+  function go(n){cur=(n+total)%total;track.style.transform=`translateX(-${cur*100}%)`;dotsWrap.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));startP();}
+  function startP(){clearTimeout(timer);bar.style.transition='none';bar.style.width='0%';requestAnimationFrame(()=>requestAnimationFrame(()=>{bar.style.transition=`width ${DUR}ms linear`;bar.style.width='100%';}));timer=setTimeout(()=>go(cur+1),DUR);}
+  track.closest('.hero').addEventListener('mouseenter',()=>clearTimeout(timer));
+  track.closest('.hero').addEventListener('mouseleave',()=>startP());
+  startP();
+})();
+
+window.addEventListener('scroll',()=>{document.getElementById('floatCta').classList.toggle('show',window.scrollY>200);},{passive:true});
+document.getElementById('hamburger').addEventListener('click',function(){this.classList.toggle('open');const m=document.getElementById('mobileMenu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'));});
+document.getElementById('mobProdToggle').addEventListener('click',e=>{e.preventDefault();const s=document.getElementById('mobProdSub');s.classList.toggle('open');e.currentTarget.querySelector('svg').style.transform=s.classList.contains('open')?'rotate(180deg)':'rotate(0)';});
+</script>
+</body>
+</html>
