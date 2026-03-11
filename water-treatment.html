@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Water Treatment | PT. Brilian Inovatek Nusantara</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#1a3c5e;--primary-dark:#142d47;--accent:#2e7d9f;--accent2:#e8f4f8;
+  --light:#f4f7fa;--white:#fff;--text:#2d2d2d;--muted:#6b7a8d;--border:#dde3ea;
+  --font:'Segoe UI',Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--white)}
+
+/* ── NAVBAR ── */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:50px;width:auto;object-fit:contain;display:block}
+.nav-logo-fallback{font-size:.95rem;font-weight:700;color:var(--primary);line-height:1.3;display:none}
+.nav-tagline-main{font-size:.72rem;color:var(--accent);letter-spacing:.08em;font-style:italic;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:4px}
+.nav-menu{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:flex;align-items:center;gap:4px;text-decoration:none;color:var(--text);font-size:.86rem;font-weight:500;padding:8px 13px;border-radius:5px;transition:background .2s,color .2s;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--accent2);color:var(--primary)}
+.nav-menu>li>a.active{font-weight:700}
+.nav-menu>li>a svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.nav-menu>li:hover>a svg{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.10);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:100}
+.nav-menu>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:.84rem;padding:9px 12px;border-radius:5px;transition:background .15s;white-space:nowrap}
+.dropdown a:hover{background:var(--accent2);color:var(--primary)}
+.dropdown a svg{width:14px;height:14px;stroke:var(--accent);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dropdown-divider{border:none;border-top:1px solid var(--border);margin:4px 0}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:var(--white);font-size:.84rem;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;margin-left:10px;transition:background .2s}
+.nav-cta:hover{background:var(--primary-dark)}
+.nav-cta svg{width:15px;height:15px;fill:currentColor}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--primary);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:12px 24px 20px}
+.mobile-menu.open{display:block}
+.mobile-menu ul{list-style:none}
+.mobile-menu ul li{border-bottom:1px solid var(--border)}
+.mobile-menu ul li>a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;text-decoration:none;color:var(--text);font-size:.9rem;font-weight:500}
+.mob-sub{display:none;padding:4px 0 8px 16px;list-style:none}
+.mob-sub.open{display:block}
+.mob-sub li a{display:block;padding:8px 0;font-size:.84rem;color:var(--muted);text-decoration:none}
+.mob-sub li a:hover{color:var(--primary)}
+.mob-cta{display:block;margin-top:14px;background:var(--primary);color:var(--white);text-align:center;padding:11px;border-radius:5px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+/* ── HERO SLIDER ── */
+.hero{position:relative;width:100%;height:520px;overflow:hidden}
+@media(max-width:768px){.hero{height:380px}}
+@media(max-width:480px){.hero{height:300px}}
+.hero-track{display:flex;height:100%;transition:transform .8s cubic-bezier(.77,0,.18,1)}
+.hero-slide{flex:0 0 100%;position:relative;overflow:hidden}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.52)}
+.hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 80px;max-width:700px}
+@media(max-width:768px){.hero-overlay{padding:0 32px;max-width:100%}}
+@media(max-width:480px){.hero-overlay{padding:0 20px}}
+.hero-badge{display:inline-block;background:rgba(46,125,159,.8);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.hero-title{font-size:2.4rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+@media(max-width:768px){.hero-title{font-size:1.7rem}}
+@media(max-width:480px){.hero-title{font-size:1.3rem}}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.65;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,.3)}
+@media(max-width:480px){.hero-sub{font-size:.85rem;margin-bottom:20px}}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-btn-primary{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-weight:700;font-size:.88rem;padding:12px 22px;border-radius:5px;text-decoration:none;transition:background .2s}
+.hero-btn-primary:hover{background:#1da851}
+.hero-btn-primary svg{width:16px;height:16px;fill:currentColor}
+.hero-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:600;font-size:.88rem;padding:12px 22px;border-radius:5px;text-decoration:none;border:1px solid rgba(255,255,255,.4);transition:background .2s}
+.hero-btn-secondary:hover{background:rgba(255,255,255,.28)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.25);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;z-index:10;font-size:1.2rem;user-select:none;line-height:1}
+.hero-arrow:hover{background:rgba(0,0,0,.5)}
+.hero-arrow-prev{left:20px}
+.hero-arrow-next{right:20px}
+.hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;border:none;transition:background .25s,transform .25s}
+.hero-dot.active{background:#fff;transform:scale(1.3)}
+/* progress bar */
+.hero-progress{position:absolute;bottom:0;left:0;height:3px;background:rgba(46,125,159,.8);width:0;z-index:10;transition:width linear}
+
+/* ── KENALI KEBUTUHAN ── */
+#kenali-kebutuhan{background:var(--light)}
+.tips-wrap{max-width:1200px;margin:0 auto;padding:72px 24px}
+.section-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border-left:3px solid var(--accent);padding-left:10px;margin-bottom:14px}
+.section-title{font-size:1.6rem;font-weight:700;color:var(--primary);line-height:1.35;margin-bottom:8px}
+.section-subtitle{font-size:.95rem;color:var(--muted);font-style:italic}
+.tips-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;margin-bottom:28px}
+.tips-card{grid-column:span 2;background:var(--white);border-radius:10px;padding:28px 22px;border:1px solid var(--border);position:relative;transition:box-shadow .25s,transform .25s}
+.tips-card:nth-child(4){grid-column:2/4}
+.tips-card:nth-child(5){grid-column:4/6}
+.tips-card:hover{box-shadow:0 8px 28px rgba(26,60,94,.09);transform:translateY(-3px)}
+.tips-number{position:absolute;top:18px;right:18px;font-size:2rem;font-weight:800;color:var(--accent2);line-height:1;user-select:none}
+.tips-icon-wrap{width:46px;height:46px;background:var(--accent2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.tips-icon-wrap svg{width:22px;height:22px;stroke:var(--accent);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tips-name{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:8px;padding-right:28px;line-height:1.35}
+.tips-desc{font-size:.83rem;color:#555;line-height:1.7}
+.tips-cta-card{background:var(--primary);border-radius:10px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.tips-cta-text p{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.85)}
+.tips-cta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--primary);font-weight:700;font-size:.88rem;padding:12px 22px;border-radius:5px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s,color .2s}
+.tips-cta-btn:hover{background:#25D366;color:#fff}
+.tips-cta-btn svg{width:16px;height:16px;fill:currentColor}
+
+.section-divider{border:none;border-top:1px solid var(--border);max-width:1200px;margin:0 auto}
+
+/* ── PRODUK SECTION ── */
+#produk-section{background:var(--white);padding:72px 0}
+.produk-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.produk-header{margin-bottom:48px}
+
+/* Row label */
+.produk-row{margin-bottom:52px}
+.produk-row:last-child{margin-bottom:0}
+.produk-row-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.produk-row-label{display:flex;align-items:center;gap:10px}
+.produk-row-label span.title{font-size:1.05rem;font-weight:700;color:var(--primary)}
+.produk-row-badge{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+.badge-res{background:var(--accent2);color:var(--accent)}
+.badge-ind{background:#fef3e2;color:#c47a1a}
+/* nav arrows */
+.pnav{display:flex;gap:6px}
+.pnav-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;flex-shrink:0}
+.pnav-btn:hover{background:var(--accent2);border-color:var(--accent)}
+.pnav-btn svg{width:14px;height:14px;stroke:var(--primary);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+/* slider */
+.p-slider-outer{overflow:hidden}
+.p-slider-track{display:flex;gap:20px;transition:transform .55s cubic-bezier(.77,0,.18,1)}
+/* card */
+.p-card{flex:0 0 calc(25% - 15px);border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--white);transition:box-shadow .25s,transform .25s;cursor:pointer}
+.p-card:hover{box-shadow:0 10px 32px rgba(26,60,94,.11);transform:translateY(-4px)}
+/* image area */
+.p-card-img{width:100%;height:200px;object-fit:cover;display:block}
+.p-card-img-ph{width:100%;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.p-card-img-ph svg{width:48px;height:48px;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
+.p-card-img-ph span{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.45}
+/* body — hanya harga + nama */
+.p-card-body{padding:12px 14px 16px;text-align:center}
+.p-card-price{font-size:.85rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.p-card-name{font-size:.9rem;font-weight:700;color:var(--primary);line-height:1.35}
+/* dots */
+.p-dots{display:flex;justify-content:center;gap:7px;margin-top:16px}
+.p-dot{width:7px;height:7px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:background .2s,transform .2s}
+.p-dot.active{background:var(--accent);transform:scale(1.35)}
+/* progress */
+.p-progress-wrap{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden}
+.p-progress-bar{height:100%;background:var(--accent);width:0;border-radius:2px;transition:width linear}
+
+@media(max-width:960px){.p-card{flex:0 0 calc(33.33% - 14px)}}
+@media(max-width:640px){.p-card{flex:0 0 calc(50% - 10px)} .p-card-img,.p-card-img-ph{height:160px}}
+@media(max-width:400px){.p-card{flex:0 0 calc(85% - 10px)}}
+
+/* ── HAK KONSUMEN ── */
+#hak-konsumen{background:var(--white)}
+.hak-wrap{max-width:1200px;margin:0 auto;padding:72px 24px}
+.hak-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;margin-top:6px}
+.hak-card{grid-column:span 2;background:var(--light);border-radius:10px;padding:28px 24px;border:1px solid var(--border);transition:box-shadow .25s,transform .25s}
+.hak-card:nth-child(4){grid-column:2/4}
+.hak-card:nth-child(5){grid-column:4/6}
+.hak-card:hover{box-shadow:0 8px 28px rgba(26,60,94,.09);transform:translateY(-3px)}
+.hak-icon-wrap{width:48px;height:48px;background:var(--accent2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.hak-icon-wrap svg{width:24px;height:24px;stroke:var(--accent);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hak-name{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:8px}
+.hak-desc{font-size:.84rem;color:#555;line-height:1.7}
+
+/* ── CTA ── */
+#cta-kontak{background:var(--primary)}
+.cta-wrap{max-width:1200px;margin:0 auto;padding:72px 24px;text-align:center}
+.cta-wrap .cta-top-label{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+.cta-wrap h2{font-size:2rem;font-weight:700;color:#fff;margin-bottom:28px}
+.cta-main-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:6px;text-decoration:none;transition:background .2s}
+.cta-main-btn:hover{background:#1da851}
+.cta-main-btn svg{width:20px;height:20px;fill:currentColor}
+
+/* ── FOOTER ── */
+footer{background:#111d2b;color:rgba(255,255,255,.75)}
+.footer-main{max-width:1200px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.4fr 1px 1fr 1px 1fr;gap:40px;align-items:start}
+.footer-vdiv{background:rgba(255,255,255,.1);height:100%;min-height:120px}
+.fcol-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.fcol-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.6)}
+.f-address{font-style:normal;font-size:.83rem;line-height:1.9;color:rgba(255,255,255,.65)}
+.f-contacts{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.f-link{font-size:.83rem;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:8px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08)}
+.footer-bottom-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.f-copy{font-size:.75rem;color:rgba(255,255,255,.4)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-menu,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hak-grid{grid-template-columns:repeat(2,1fr)}
+  .hak-card:nth-child(4),.hak-card:nth-child(5){grid-column:span 1}
+}
+@media(max-width:768px){
+  .tips-wrap,.hak-wrap,.cta-wrap{padding:48px 20px}
+  .tips-grid{grid-template-columns:1fr;gap:16px}
+  .tips-card,.tips-card:nth-child(4),.tips-card:nth-child(5){grid-column:span 1}
+  .tips-cta-card{flex-direction:column;text-align:center}
+  .footer-main{grid-template-columns:1fr;gap:28px}
+  .footer-vdiv{display:none}
+}
+@media(max-width:480px){
+  .nav-inner{height:60px}
+  .nav-logo img{height:42px}
+  .hak-grid{grid-template-columns:1fr}
+  .footer-bottom-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="/water-treatment/" class="nav-logo">
+      <img src="https://i.imgur.com/ul8N0Ny.png" alt="Logo PT. Brilian Inovatek Nusantara" loading="eager"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-fallback">PT. Brilian Inovatek Nusantara</span>
+      <div><span class="nav-tagline-main">Engineering ▪ Environment ▪ Innovation</span></div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="/water-treatment/" class="active">Home</a></li>
+        <li>
+          <a href="/water-treatment/product/">Product <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/water-treatment/residential/"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg>Residential Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/industrial/"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Industrial Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/reverse-osmosis/"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>Reverse Osmosis</a>
+          </div>
+        </li>
+        <li><a href="/water-treatment/projects/">Projects</a></li>
+        <li><a href="/water-treatment/faq/">FAQ</a></li>
+        <li><a href="/water-treatment/article/">Article</a></li>
+        <li><a href="/water-treatment/contact/">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/628138006547" target="_blank" rel="noopener noreferrer" class="nav-cta">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Konsultasi Gratis
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/water-treatment/" style="color:var(--primary);font-weight:700">Home</a></li>
+      <li>
+        <a href="/water-treatment/product/" id="mobProdToggle">Product <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="mob-sub" id="mobProdSub">
+          <li><a href="/water-treatment/residential/">Residential Product</a></li>
+          <li><a href="/water-treatment/industrial/">Industrial Product</a></li>
+          <li><a href="/water-treatment/reverse-osmosis/">Reverse Osmosis</a></li>
+        </ul>
+      </li>
+      <li><a href="/water-treatment/projects/">Projects</a></li>
+      <li><a href="/water-treatment/faq/">FAQ</a></li>
+      <li><a href="/water-treatment/article/">Article</a></li>
+      <li><a href="/water-treatment/contact/">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/628138006547" target="_blank" rel="noopener noreferrer" class="mob-cta">Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- ══ HERO BANNER SLIDER ══ -->
+<section class="hero" aria-label="Hero Banner">
+  <div class="hero-track" id="heroTrack">
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80" alt="Water Treatment System" loading="eager"/>
+              <div class="hero-overlay">
+        <span class="hero-badge">Water Treatment Professional</span>
+        <h1 class="hero-title">Solusi Air Bersih<br>untuk Rumah &amp; Industri</h1>
+        <p class="hero-sub">Filter air sumur bor, PDAM, dan sistem RO berkualitas tinggi. Analisa kondisi air gratis, instalasi profesional, garansi purna jual.</p>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80" alt="Industrial Water Treatment" loading="lazy"/>
+      <div class="hero-overlay">
+        <span class="hero-badge">Industrial Solution</span>
+        <h1 class="hero-title">Sistem Pengolahan Air<br>Skala Industri</h1>
+        <p class="hero-sub">Dirancang khusus untuk pabrik, gedung, hotel, dan fasilitas komersial dengan kapasitas tinggi dan performa andal.</p>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1400&q=80" alt="Reverse Osmosis" loading="lazy"/>
+      <div class="hero-overlay">
+        <span class="hero-badge">Reverse Osmosis</span>
+        <h1 class="hero-title">Air Minum Berkualitas<br>Langsung dari Kran</h1>
+        <p class="hero-sub">Sistem RO terbaik untuk menyaring kontaminan, logam berat, dan bakteri. Air jernih, aman, dan segar untuk keluarga Anda.</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-progress" id="heroProgress"></div>
+</section>
+
+<!-- KENALI KEBUTUHAN -->
+<section id="kenali-kebutuhan" aria-label="Kenali Kebutuhan Air Anda">
+  <div class="tips-wrap">
+    <div style="margin-bottom:40px">
+      <span class="section-label">Panduan</span>
+      <h2 class="section-title">Kenali Kebutuhan Air Anda</h2>
+      <p class="section-subtitle">Tips Memilih Filter Air Sumur &amp; PDAM yang Tepat</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tips-card"><div class="tips-number">01</div><div class="tips-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/></svg></div><h3 class="tips-name">Kenali Sumber Air Anda</h3><p class="tips-desc">Air sumur bor sering mengandung zat besi dan mangan, sementara air PDAM umumnya memiliki kaporit. Mengetahui sumber air membantu menentukan sistem filter yang sesuai.</p></div>
+      <div class="tips-card"><div class="tips-number">02</div><div class="tips-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3 class="tips-name">Identifikasi Masalah Air</h3><p class="tips-desc">Apakah air berwarna kuning, berbau, keruh, atau terasa licin? Setiap masalah membutuhkan jenis media filter yang berbeda agar hasil maksimal.</p></div>
+      <div class="tips-card"><div class="tips-number">03</div><div class="tips-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 class="tips-name">Pilih Media Filter yang Sesuai</h3><p class="tips-desc">Karbon aktif, pasir silika, manganese, atau resin softener memiliki fungsi berbeda. Pastikan komposisinya disesuaikan dengan kondisi air.</p></div>
+      <div class="tips-card"><div class="tips-number">04</div><div class="tips-icon-wrap"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><h3 class="tips-name">Perhatikan Kualitas Tabung &amp; Valve</h3><p class="tips-desc">Gunakan tabung FRP berkualitas dan head valve yang tepat (manual atau otomatis). Komponen yang baik menjamin daya tahan dan kinerja sistem.</p></div>
+      <div class="tips-card"><div class="tips-number">05</div><div class="tips-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><h3 class="tips-name">Garansi &amp; Layanan Purna Jual</h3><p class="tips-desc">Filter air adalah investasi jangka panjang. Pilih penyedia yang memberikan garansi instalasi dan dukungan perawatan rutin.</p></div>
+    </div>
+    <div class="tips-cta-card">
+      <div class="tips-cta-text"><p>Memasang filter air sumur bor atau filter air PDAM di Jabodetabek memerlukan analisa yang tepat agar tidak salah pilih sistem. Konsultasikan kondisi air rumah Anda untuk mendapatkan solusi yang sesuai kebutuhan.</p></div>
+      <a href="https://wa.me/628138006547" target="_blank" rel="noopener" class="tips-cta-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Konsultasi Gratis
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ══ PRODUK SLIDER ══ -->
+<section id="produk-section" aria-label="Produk Water Treatment">
+  <div class="produk-wrap">
+    <div class="produk-header">
+      <span class="section-label">Produk Kami</span>
+      <h2 class="section-title">Rangkaian Produk Water Treatment</h2>
+    </div>
+
+    <!-- RESIDENTIAL -->
+    <div class="produk-row">
+      <div class="produk-row-header">
+        <div class="produk-row-label">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg>
+          <span class="title">Residential</span>
+          <span class="produk-row-badge badge-res">Untuk Rumah Tangga</span>
+        </div>
+        <div class="pnav">
+          <button class="pnav-btn" id="rPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="pnav-btn" id="rNext"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+      </div>
+      <div class="p-slider-outer">
+        <div class="p-slider-track" id="rTrack">
+
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg><span style="color:#1a6fa0">RO Rumah Tangga</span></div><div class="p-card-body"><p class="p-card-price">Rp 4.199.500</p><h3 class="p-card-name">BRL RO Rumah Tangga</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><circle cx="12" cy="14" r="2"/></svg><span style="color:#1a6fa0">Filter PDAM</span></div><div class="p-card-body"><p class="p-card-price">Rp 11.799.000</p><h3 class="p-card-name">BRL Filter Air PDAM</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><line x1="12" y1="10" x2="12" y2="18"/></svg><span style="color:#1a6fa0">Standar I</span></div><div class="p-card-body"><p class="p-card-price">Rp 14.299.000</p><h3 class="p-card-name">BRL Standar I</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><line x1="12" y1="10" x2="12" y2="18"/></svg><span style="color:#1a6fa0">Standar II</span></div><div class="p-card-body"><p class="p-card-price">Rp 19.499.000</p><h3 class="p-card-name">BRL Standar II</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg><span style="color:#1a6fa0">Unggulan</span></div><div class="p-card-body"><p class="p-card-price">Rp 18.299.000</p><h3 class="p-card-name">BRL Seri Unggulan</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg><span style="color:#1a6fa0">Pilihan Utama</span></div><div class="p-card-body"><p class="p-card-price">Rp 25.999.000</p><h3 class="p-card-name">BRL Pilihan Utama</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7M17 14v7"/></svg><span style="color:#1a6fa0">Auto I</span></div><div class="p-card-body"><p class="p-card-price">Rp 24.799.000</p><h3 class="p-card-name">BRL Auto I</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7M17 14v7"/></svg><span style="color:#1a6fa0">Auto II</span></div><div class="p-card-body"><p class="p-card-price">Rp 29.999.000</p><h3 class="p-card-name">BRL Auto II</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)"><svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7M17 14v7"/></svg><span style="color:#1a6fa0">Auto III</span></div><div class="p-card-body"><p class="p-card-price">Rp 44.399.000</p><h3 class="p-card-name">BRL Auto III</h3></div></div>
+
+        </div>
+      </div>
+      <div class="p-progress-wrap"><div class="p-progress-bar" id="rBar"></div></div>
+      <div class="p-dots" id="rDots"></div>
+    </div>
+
+    <!-- INDUSTRIAL -->
+    <div class="produk-row">
+      <div class="produk-row-header">
+        <div class="produk-row-label">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c47a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          <span class="title">Industrial</span>
+          <span class="produk-row-badge badge-ind">Skala Industri &amp; Komersial</span>
+        </div>
+        <div class="pnav">
+          <button class="pnav-btn" id="iPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="pnav-btn" id="iNext"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+      </div>
+      <div class="p-slider-outer">
+        <div class="p-slider-track" id="iTrack">
+
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg><span style="color:#a05c10">RO Industri 10</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 77.999.000</p><h3 class="p-card-name">BRL RO Industri 10</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg><span style="color:#a05c10">RO Industri 20</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 233.099.000</p><h3 class="p-card-name">BRL RO Industri 20</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg><span style="color:#a05c10">Sistem Gedung</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 72.819.000</p><h3 class="p-card-name">BRL Sistem Gedung</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span style="color:#a05c10">Manufaktur 100</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 101.895.000</p><h3 class="p-card-name">BRL Sistem Manufaktur 100</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span style="color:#a05c10">Skala Menengah</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 148.915.000</p><h3 class="p-card-name">BRL Industri Skala Menengah</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span style="color:#a05c10">Skala Besar</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 222.459.000</p><h3 class="p-card-name">BRL Industri Skala Besar</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span style="color:#a05c10">Skala Utama</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 427.499.000</p><h3 class="p-card-name">BRL Industri Skala Utama</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span style="color:#a05c10">Filtrasi Dasar</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 164.355.000</p><h3 class="p-card-name">BRL Sistem Filtrasi Dasar</h3></div></div>
+          <div class="p-card"><div class="p-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)"><svg viewBox="0 0 24 24" style="stroke:#a05c10"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span style="color:#a05c10">Filtrasi Lanjutan</span></div><div class="p-card-body"><p class="p-card-price" style="color:#c47a1a">Rp 315.615.250</p><h3 class="p-card-name">BRL Sistem Filtrasi Lanjutan</h3></div></div>
+
+        </div>
+      </div>
+      <div class="p-progress-wrap"><div class="p-progress-bar" id="iBar"></div></div>
+      <div class="p-dots" id="iDots"></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- HAK KONSUMEN -->
+<section id="hak-konsumen" aria-label="Komitmen dan Hak Pelanggan Brilian">
+  <div class="hak-wrap">
+    <span class="section-label">Komitmen Kami</span>
+    <h2 class="section-title" style="margin-top:6px;margin-bottom:40px">Komitmen &amp; Hak Pelanggan Brilian</h2>
+    <div class="hak-grid">
+      <div class="hak-card"><div class="hak-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><line x1="12" y1="10" x2="12" y2="16"/></svg></div><h3 class="hak-name">Analisa Air yang Akurat</h3><p class="hak-desc">Kami merekomendasikan sistem water treatment berdasarkan kondisi air sumur bor atau PDAM di rumah Anda.</p></div>
+      <div class="hak-card"><div class="hak-icon-wrap"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3 class="hak-name">Transparansi Spesifikasi Produk</h3><p class="hak-desc">Anda berhak mengetahui jenis media filter, tabung FRP, dan sistem valve yang digunakan.</p></div>
+      <div class="hak-card"><div class="hak-icon-wrap"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><h3 class="hak-name">Instalasi Profesional</h3><p class="hak-desc">Pemasangan filter air dilakukan sesuai standar teknis agar hasil maksimal dan tahan lama.</p></div>
+      <div class="hak-card"><div class="hak-icon-wrap"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/><circle cx="12" cy="12" r="10"/></svg></div><h3 class="hak-name">Kualitas Komponen Terjamin</h3><p class="hak-desc">Kami menggunakan material berkualitas untuk memastikan performa sistem stabil.</p></div>
+      <div class="hak-card"><div class="hak-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><h3 class="hak-name">Perlindungan &amp; Investasi Pelanggan</h3><p class="hak-desc">Kami memastikan kualitas, ketahanan, dan dukungan teknis untuk menjaga nilai investasi sistem Anda.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- CTA -->
+<section id="cta-kontak" aria-label="Hubungi Kami">
+  <div class="cta-wrap">
+    <p class="cta-top-label">Mulai Sekarang</p>
+    <h2>Hubungi Kami</h2>
+    <a href="https://wa.me/628138006547" target="_blank" rel="noopener noreferrer" class="cta-main-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      <div style="text-align:left">
+        <span style="font-size:.72rem;font-weight:400;opacity:.85;display:block">Chat langsung via WhatsApp</span>
+        <span style="font-size:.95rem;font-weight:700">+62 813 800 6547</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <p class="fcol-label">PT. Brilian Inovatek Nusantara</p>
+      <p class="fcol-desc">Perusahaan engineering dan solusi terintegrasi yang melayani kebutuhan industri, fasilitas komersial, dan institusi dengan kualitas teknis tinggi dan pendekatan profesional.</p>
+    </div>
+    <div class="footer-vdiv"></div>
+    <div>
+      <p class="fcol-label">Kantor</p>
+      <address class="f-address">Jl. Cililitan Besar Nomor 72D,<br>Kel. Kramat Jati, Kec. Kramat Jati,<br>Kota Jakarta Timur, DKI Jakarta 13510</address>
+      <div class="f-contacts">
+        <a href="tel:+6281380006547" class="f-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 813 800 6547</a>
+        <a href="mailto:brilianproject.in@gmail.com" class="f-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>brilianproject.in@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-vdiv"></div>
+    <div>
+      <p class="fcol-label">Workshop</p>
+      <address class="f-address">Jl. Wibawa Mukti II,<br>Kel. Jatisari, Kec. Jatiasih,<br>Kota Bekasi, Jawa Barat 17426</address>
+      <div class="f-contacts">
+        <a href="tel:+6285771578963" class="f-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 857 7157 8963</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="f-copy">© 2026 PT. Brilian Inovatek Nusantara. Seluruh hak dilindungi.</p>
+      <p class="f-copy" style="letter-spacing:.06em">Engineering • Environment • Innovation</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══ HERO SLIDER ══ */
+(function(){
+  const track = document.getElementById('heroTrack');
+  const slides = track.querySelectorAll('.hero-slide');
+  const dotsWrap = document.getElementById('heroDots');
+  const progressBar = document.getElementById('heroProgress');
+  const DURATION = 5000;
+  let cur = 0, timer, progTimer, total = slides.length;
+
+  slides.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'hero-dot'+(i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = ()=>go(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function go(n){
+    cur = (n+total)%total;
+    track.style.transform = `translateX(-${cur*100}%)`;
+    dotsWrap.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    startProgress();
+  }
+
+  function startProgress(){
+    clearInterval(timer);
+    clearInterval(progTimer);
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        progressBar.style.transition = `width ${DURATION}ms linear`;
+        progressBar.style.width = '100%';
+      });
+    });
+    timer = setTimeout(()=>go(cur+1), DURATION);
+  }
+
+  // pause on hover
+  const hero = track.closest('.hero');
+  hero.addEventListener('mouseenter',()=>{ clearTimeout(timer); clearInterval(progTimer); });
+  hero.addEventListener('mouseleave',()=>startProgress());
+
+  startProgress();
+})();
+
+/* ══ PRODUK SLIDER ══ */
+function initSlider(trackId, prevId, nextId, dotsId, barId){
+  const track = document.getElementById(trackId);
+  const dotsWrap = document.getElementById(dotsId);
+  const bar = document.getElementById(barId);
+  const cards = Array.from(track.querySelectorAll('.p-card'));
+  const DURATION = 3500;
+  let cur = 0, timer;
+
+  function visCount(){
+    const w = track.parentElement.offsetWidth;
+    if(w>=960) return 4;
+    if(w>=640) return 3;
+    if(w>=400) return 2;
+    return 1;
+  }
+
+  function cardW(){
+    const v = visCount(), gap = 20;
+    return (track.parentElement.offsetWidth - gap*(v-1)) / v;
+  }
+
+  function pages(){ return Math.max(1, cards.length - visCount() + 1); }
+
+  function buildDots(){
+    dotsWrap.innerHTML='';
+    const p = pages();
+    if(p<=1) return;
+    for(let i=0;i<p;i++){
+      const d = document.createElement('button');
+      d.className='p-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Halaman '+(i+1));
+      d.onclick=()=>go(i);
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function go(n){
+    cur = Math.max(0, Math.min(n, pages()-1));
+    const cw = cardW()+20;
+    track.style.transform = `translateX(-${cur*cw}px)`;
+    dotsWrap.querySelectorAll('.p-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    // progress bar
+    bar.style.transition='none'; bar.style.width='0%';
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      bar.style.transition=`width ${DURATION}ms linear`;
+      bar.style.width='100%';
+    }));
+    clearTimeout(timer);
+    timer = setTimeout(()=>go(cur>=pages()-1?0:cur+1), DURATION);
+  }
+
+  function setup(){
+    const cw = cardW();
+    cards.forEach(c=>{ c.style.flex=`0 0 ${cw}px`; });
+    cur = Math.min(cur, pages()-1);
+    buildDots();
+    go(cur);
+  }
+
+  document.getElementById(prevId).onclick=()=>go(cur-1);
+  document.getElementById(nextId).onclick=()=>go(cur+1);
+
+  // pause on hover
+  track.closest('.produk-row').addEventListener('mouseenter',()=>clearTimeout(timer));
+  track.closest('.produk-row').addEventListener('mouseleave',()=>{
+    clearTimeout(timer);
+    timer = setTimeout(()=>go(cur>=pages()-1?0:cur+1), DURATION);
+  });
+
+  setup();
+  window.addEventListener('resize', setup);
+}
+
+initSlider('rTrack','rPrev','rNext','rDots','rBar');
+initSlider('iTrack','iPrev','iNext','iDots','iBar');
+
+/* ══ MOBILE NAV ══ */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+});
+document.getElementById('mobProdToggle').addEventListener('click',e=>{
+  e.preventDefault();
+  const sub = document.getElementById('mobProdSub');
+  sub.classList.toggle('open');
+  e.currentTarget.querySelector('svg').style.transform = sub.classList.contains('open')?'rotate(180deg)':'rotate(0)';
+});
+</script>
+</body>
+</html>
