@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BRL RO Rumah Tangga | PT. Brilian Inovatek Nusantara</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#1a3c5e;--primary-dark:#142d47;--accent:#2e7d9f;--accent2:#e8f4f8;
+  --light:#f4f7fa;--white:#fff;--text:#2d2d2d;--muted:#6b7a8d;--border:#dde3ea;
+  --font:'Segoe UI',Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--white)}
+
+/* ── NAVBAR ── */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:50px;width:auto;object-fit:contain}
+.nav-logo-fallback{font-size:.95rem;font-weight:700;color:var(--primary);display:none}
+.nav-tagline-main{font-size:.72rem;color:var(--accent);letter-spacing:.08em;font-style:italic;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:4px}
+.nav-menu{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:flex;align-items:center;gap:4px;text-decoration:none;color:var(--text);font-size:.86rem;font-weight:500;padding:8px 13px;border-radius:5px;transition:background .2s,color .2s;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--accent2);color:var(--primary)}
+.nav-menu>li>a svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.nav-menu>li:hover>a svg{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.10);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:100}
+.nav-menu>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:.84rem;padding:9px 12px;border-radius:5px;transition:background .15s;white-space:nowrap}
+.dropdown a:hover{background:var(--accent2);color:var(--primary)}
+.dropdown a svg{width:14px;height:14px;stroke:var(--accent);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dropdown-divider{border:none;border-top:1px solid var(--border);margin:4px 0}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:var(--white);font-size:.84rem;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;margin-left:10px;transition:background .2s}
+.nav-cta:hover{background:var(--primary-dark)}
+.nav-cta svg{width:15px;height:15px;fill:currentColor}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--primary);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:12px 24px 20px}
+.mobile-menu.open{display:block}
+.mobile-menu ul{list-style:none}
+.mobile-menu ul li{border-bottom:1px solid var(--border)}
+.mobile-menu ul li>a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;text-decoration:none;color:var(--text);font-size:.9rem;font-weight:500}
+.mob-sub{display:none;padding:4px 0 8px 16px;list-style:none}
+.mob-sub.open{display:block}
+.mob-sub li a{display:block;padding:8px 0;font-size:.84rem;color:var(--muted);text-decoration:none}
+.mob-sub li a:hover{color:var(--primary)}
+.mob-cta{display:block;margin-top:14px;background:var(--primary);color:var(--white);text-align:center;padding:11px;border-radius:5px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+/* ── BREADCRUMB ── */
+.breadcrumb-wrap{background:var(--light);border-bottom:1px solid var(--border)}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--primary)}
+.breadcrumb svg{width:10px;height:10px;stroke:var(--muted);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.breadcrumb span{color:var(--primary);font-weight:600}
+
+/* ── PRODUCT DETAIL LAYOUT ── */
+.detail-section{max-width:1200px;margin:0 auto;padding:48px 24px 80px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+@media(max-width:800px){.detail-grid{grid-template-columns:1fr;gap:32px}}
+
+/* ── LEFT: IMAGE GALLERY ── */
+.detail-image-wrap{position:sticky;top:90px}
+@media(max-width:800px){.detail-image-wrap{position:static}}
+
+/* main image */
+.gallery-main{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1/1;background:linear-gradient(135deg,#dff0f8,#b8dff0)}
+.gallery-slides{display:flex;height:100%;transition:transform .4s cubic-bezier(.77,0,.18,1)}
+.gallery-slide{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative}
+.gallery-slide svg.prod-icon{width:120px;height:120px;fill:none;stroke:#1a6fa0;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.gallery-slide-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1a6fa0;opacity:.6}
+.detail-badge-best{position:absolute;top:16px;left:16px;background:#ffc107;color:#5a3e00;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 13px;border-radius:20px;z-index:2}
+
+/* arrow buttons */
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,.92);border:1px solid var(--border);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,box-shadow .2s;box-shadow:0 2px 10px rgba(0,0,0,.10)}
+.gallery-arrow:hover{background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.15)}
+.gallery-arrow svg{width:16px;height:16px;stroke:var(--primary);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gallery-prev{left:10px}
+.gallery-next{right:10px}
+
+/* thumbnails */
+.gallery-thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.gallery-thumbs::-webkit-scrollbar{height:4px}
+.gallery-thumbs::-webkit-scrollbar-track{background:transparent}
+.gallery-thumbs::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.g-thumb{flex:0 0 68px;height:68px;border-radius:8px;border:2px solid var(--border);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:border-color .2s,box-shadow .2s;overflow:hidden}
+.g-thumb svg{width:28px;height:28px;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.g-thumb span{font-size:.5rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.5}
+.g-thumb.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(46,125,159,.18)}
+
+/* description below image */
+.detail-desc{margin-top:16px;font-size:.88rem;line-height:1.75;color:var(--muted)}
+
+/* ── RIGHT: INFO ── */
+.detail-info{}
+.detail-cat{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.detail-name{font-size:1.9rem;font-weight:800;color:var(--primary);line-height:1.2;margin-bottom:14px}
+@media(max-width:480px){.detail-name{font-size:1.45rem}}
+.detail-price{font-size:1.55rem;font-weight:700;color:var(--accent);margin-bottom:6px}
+.detail-price-note{font-size:.78rem;color:var(--muted);margin-bottom:28px}
+
+/* ── CTA BUTTON ── */
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#25D366;color:#fff;font-size:1rem;font-weight:700;padding:15px 24px;border-radius:8px;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(37,211,102,.3);margin-bottom:28px}
+.btn-wa:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,211,102,.4)}
+.btn-wa svg{width:22px;height:22px;fill:currentColor;flex-shrink:0}
+
+/* ── ACCORDION ── */
+.accordion{border-top:1px solid var(--border)}
+.acc-item{border-bottom:1px solid var(--border)}
+.acc-header{display:flex;align-items:center;justify-content:space-between;padding:16px 0;cursor:pointer;user-select:none}
+.acc-title{font-size:.95rem;font-weight:600;color:var(--text)}
+.acc-icon{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,border-color .2s}
+.acc-icon svg{width:11px;height:11px;stroke:var(--muted);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.acc-item.open .acc-icon{background:var(--accent);border-color:var(--accent)}
+.acc-item.open .acc-icon svg{stroke:#fff;transform:rotate(45deg)}
+.acc-body{display:none;padding:0 0 18px;font-size:.87rem;line-height:1.8;color:var(--muted)}
+.acc-item.open .acc-body{display:block}
+.acc-body ul{padding-left:18px;margin-top:8px}
+.acc-body ul li{margin-bottom:5px}
+.acc-body strong{color:var(--text)}
+
+/* ── SOCIAL SHARE ── */
+.share-row{display:flex;align-items:center;gap:12px;margin-top:24px}
+.share-label{font-size:.78rem;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.share-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);color:var(--muted);text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.share-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent2)}
+.share-btn svg{width:16px;height:16px;fill:currentColor}
+
+/* ── FLOATING CTA ── */
+.floating-cta{position:fixed;bottom:28px;right:28px;z-index:998;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.floating-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:.88rem;padding:13px 20px;border-radius:50px;box-shadow:0 6px 24px rgba(37,211,102,.4);text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
+.floating-cta-btn:hover{background:#1da851;transform:translateY(-2px)}
+.floating-cta-btn svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+.floating-pulse{position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:#ff4757}
+.floating-pulse::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:rgba(255,71,87,.4);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:0}}
+@media(max-width:480px){.floating-cta-btn span{display:none}.floating-cta-btn{padding:14px;border-radius:50%}}
+
+/* ── FOOTER ── */
+footer{background:#111d2b;color:rgba(255,255,255,.75)}
+.footer-main{max-width:1200px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.4fr 1px 1fr 1px 1fr;gap:40px;align-items:start}
+.footer-vdiv{background:rgba(255,255,255,.1);height:100%;min-height:120px}
+.fcol-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.fcol-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.6)}
+.f-address{font-style:normal;font-size:.83rem;line-height:1.9;color:rgba(255,255,255,.65)}
+.f-contacts{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.f-link{font-size:.83rem;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:8px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08)}
+.footer-bottom-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.f-copy{font-size:.75rem;color:rgba(255,255,255,.4)}
+
+@media(max-width:900px){.nav-menu,.nav-cta{display:none}.hamburger{display:flex}}
+@media(max-width:768px){.footer-main{grid-template-columns:1fr;gap:28px}.footer-vdiv{display:none}}
+@media(max-width:480px){.nav-inner{height:60px}.nav-logo img{height:42px}.footer-bottom-inner{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="/water-treatment/" class="nav-logo">
+      <img src="https://i.imgur.com/ul8N0Ny.png" alt="Logo PT. Brilian Inovatek Nusantara" loading="eager"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-fallback">PT. Brilian Inovatek Nusantara</span>
+      <div><span class="nav-tagline-main">Engineering ▪ Environment ▪ Innovation</span></div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="/water-treatment/">Home</a></li>
+        <li>
+          <a href="/water-treatment/product/" class="active">Product <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/water-treatment/residential/"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg>Residential Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/industrial/"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Industrial Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/reverse-osmosis/"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>Reverse Osmosis</a>
+          </div>
+        </li>
+        <li><a href="/water-treatment/projects/">Projects</a></li>
+        <li><a href="/water-treatment/faq/">FAQ</a></li>
+        <li><a href="/water-treatment/article/">Article</a></li>
+        <li><a href="/water-treatment/contact/">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/628138006547" target="_blank" rel="noopener noreferrer" class="nav-cta">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Konsultasi Gratis
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/water-treatment/">Home</a></li>
+      <li>
+        <a href="/water-treatment/product/" id="mobProdToggle">Product <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="mob-sub" id="mobProdSub">
+          <li><a href="/water-treatment/residential/">Residential Product</a></li>
+          <li><a href="/water-treatment/industrial/">Industrial Product</a></li>
+          <li><a href="/water-treatment/reverse-osmosis/">Reverse Osmosis</a></li>
+        </ul>
+      </li>
+      <li><a href="/water-treatment/projects/">Projects</a></li>
+      <li><a href="/water-treatment/faq/">FAQ</a></li>
+      <li><a href="/water-treatment/article/">Article</a></li>
+      <li><a href="/water-treatment/contact/">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/628138006547" target="_blank" rel="noopener noreferrer" class="mob-cta">Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-wrap">
+  <div class="breadcrumb">
+    <a href="/water-treatment/">Home</a>
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <a href="/water-treatment/product/">Semua Produk</a>
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <a href="/water-treatment/residential/">Residensial</a>
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <span>BRL RO Rumah Tangga</span>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL -->
+<div class="detail-section">
+  <div class="detail-grid">
+
+    <!-- LEFT: IMAGE GALLERY + DESCRIPTION -->
+    <div>
+      <div class="detail-image-wrap">
+
+        <!-- Main Viewer -->
+        <div class="gallery-main">
+          <span class="detail-badge-best">★ Best Seller</span>
+
+          <!-- Slides -->
+          <div class="gallery-slides" id="gallerySlides">
+
+            <div class="gallery-slide" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)">
+              <svg class="prod-icon" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+              <span class="gallery-slide-label">Tampak Depan</span>
+            </div>
+
+            <div class="gallery-slide" style="background:linear-gradient(135deg,#e8f4f8,#c5e4f0)">
+              <svg class="prod-icon" viewBox="0 0 24 24">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>
+                <circle cx="12" cy="12" r="5"/>
+              </svg>
+              <span class="gallery-slide-label">Membran RO</span>
+            </div>
+
+            <div class="gallery-slide" style="background:linear-gradient(135deg,#d4ecf7,#a8d8ea)">
+              <svg class="prod-icon" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                <path d="M14 17h7M17 14v7"/>
+              </svg>
+              <span class="gallery-slide-label">Sistem Filtrasi</span>
+            </div>
+
+            <div class="gallery-slide" style="background:linear-gradient(135deg,#e0f2f8,#b0d8ed)">
+              <svg class="prod-icon" viewBox="0 0 24 24">
+                <path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/>
+                <circle cx="12" cy="14" r="2"/>
+              </svg>
+              <span class="gallery-slide-label">Tangki &amp; Keran</span>
+            </div>
+
+          </div><!-- /gallery-slides -->
+
+          <!-- Arrows -->
+          <button class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Sebelumnya">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="gallery-arrow gallery-next" id="galleryNext" aria-label="Berikutnya">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div><!-- /gallery-main -->
+
+        <!-- Thumbnails -->
+        <div class="gallery-thumbs" id="galleryThumbs">
+
+          <div class="g-thumb active" data-index="0" style="background:linear-gradient(135deg,#dff0f8,#b8dff0)">
+            <svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+            <span style="color:#1a6fa0">Depan</span>
+          </div>
+
+          <div class="g-thumb" data-index="1" style="background:linear-gradient(135deg,#e8f4f8,#c5e4f0)">
+            <svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg>
+            <span style="color:#1a6fa0">Membran</span>
+          </div>
+
+          <div class="g-thumb" data-index="2" style="background:linear-gradient(135deg,#d4ecf7,#a8d8ea)">
+            <svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7M17 14v7"/></svg>
+            <span style="color:#1a6fa0">Filtrasi</span>
+          </div>
+
+          <div class="g-thumb" data-index="3" style="background:linear-gradient(135deg,#e0f2f8,#b0d8ed)">
+            <svg viewBox="0 0 24 24" style="stroke:#1a6fa0"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><circle cx="12" cy="14" r="2"/></svg>
+            <span style="color:#1a6fa0">Tangki</span>
+          </div>
+
+        </div><!-- /gallery-thumbs -->
+
+        <p class="detail-desc">
+          Sistem Reverse Osmosis kompak untuk air minum langsung dari kran. Dirancang khusus untuk dapur rumah tangga yang menginginkan air minum bersih, jernih, dan bebas kontaminan setiap harinya.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT: INFO -->
+    <div class="detail-info">
+      <div class="detail-cat">Residensial · Reverse Osmosis</div>
+      <h1 class="detail-name">BRL RO Rumah Tangga</h1>
+      <div class="detail-price">Rp 4.199.500</div>
+      <p class="detail-price-note">*Harga belum termasuk ongkos pemasangan. Hubungi kami untuk informasi lebih lanjut.</p>
+
+      <!-- CTA WhatsApp -->
+      <a href="https://wa.me/628138006547?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20BRL%20RO%20Rumah%20Tangga.%20Boleh%20saya%20konsultasi%3F" target="_blank" rel="noopener noreferrer" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Konsultasi Sekarang via WhatsApp
+      </a>
+
+      <!-- ACCORDION -->
+      <div class="accordion">
+
+        <!-- Info Produk -->
+        <div class="acc-item open">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Spesifikasi Produk</span>
+            <span class="acc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </div>
+          <div class="acc-body">
+            Sistem Reverse Osmosis kompak untuk air minum langsung dari kran. Ideal untuk dapur rumah tangga dengan kebutuhan air minum harian.
+            <ul>
+              <li><strong>Kapasitas:</strong> 50–75 GPD</li>
+              <li><strong>Tahapan:</strong> 5 stage filtrasi</li>
+              <li><strong>Membran RO:</strong> TFC (Thin Film Composite) berkualitas tinggi</li>
+              <li><strong>Tangki Penyimpanan:</strong> 3,2 galon</li>
+              <li><strong>Tekanan Operasi:</strong> 50–80 PSI</li>
+              <li><strong>Sumber Air:</strong> PDAM / sumur bor</li>
+              <li><strong>Dimensi:</strong> Kompak, mudah dipasang di bawah wastafel</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Yang Pembeli Dapatkan -->
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Yang Anda Dapatkan</span>
+            <span class="acc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <ul>
+              <li>1 unit sistem RO lengkap siap pasang</li>
+              <li>Membran RO TFC + 4 filter pre-treatment</li>
+              <li>Tangki penyimpanan 3,2 galon</li>
+              <li>Keran khusus air minum (faucet)</li>
+              <li>Selang dan fitting koneksi lengkap</li>
+              <li>Buku panduan pemasangan & perawatan</li>
+              <li>Konsultasi teknis gratis via WhatsApp</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Garansi & Layanan Purna Jual -->
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Garansi &amp; Layanan Purna Jual</span>
+            <span class="acc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <ul>
+              <li><strong>Garansi unit:</strong> 1 tahun untuk kerusakan pabrik</li>
+              <li><strong>Garansi membran RO:</strong> 6 bulan pemakaian normal</li>
+              <li><strong>Layanan servis:</strong> Teknisi siap kunjungan ke lokasi (Jabodetabek)</li>
+              <li><strong>Penggantian filter:</strong> Konsultasi jadwal penggantian berkala</li>
+              <li><strong>Support:</strong> Bantuan teknis via WhatsApp selama jam kerja</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+
+      <!-- SOCIAL SHARE -->
+      <div class="share-row">
+        <span class="share-label">Bagikan</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://brilliant-inovatek.co.id/product/r1/" target="_blank" rel="noopener noreferrer" class="share-btn" title="Bagikan ke Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://pinterest.com/pin/create/button/?url=https://brilliant-inovatek.co.id/product/r1/" target="_blank" rel="noopener noreferrer" class="share-btn" title="Bagikan ke Pinterest">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.141-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.137-1.868 3.137-4.568 0-2.387-1.717-4.057-4.168-4.057-2.839 0-4.504 2.129-4.504 4.33 0 .857.33 1.776.741 2.279a.3.3 0 01.069.286c-.076.314-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+        </a>
+        <a href="https://wa.me/?text=Lihat%20produk%20BRL%20RO%20Rumah%20Tangga%20dari%20PT.%20Brilian%20Inovatek%20Nusantara%3A%20https://brilliant-inovatek.co.id/product/r1/" target="_blank" rel="noopener noreferrer" class="share-btn" title="Bagikan via WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://brilliant-inovatek.co.id/product/r1/&text=BRL%20RO%20Rumah%20Tangga%20-%20PT.%20Brilian%20Inovatek%20Nusantara" target="_blank" rel="noopener noreferrer" class="share-btn" title="Bagikan ke X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+
+    </div><!-- /detail-info -->
+  </div><!-- /detail-grid -->
+</div><!-- /detail-section -->
+
+<!-- FLOATING CTA -->
+<a href="https://wa.me/628138006547?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20BRL%20RO%20Rumah%20Tangga.%20Boleh%20saya%20konsultasi%3F" target="_blank" rel="noopener noreferrer" class="floating-cta" id="floatingCta" style="opacity:0;pointer-events:none;transition:opacity .3s">
+  <div style="position:relative">
+    <div class="floating-pulse"></div>
+    <div class="floating-cta-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      <span>Konsultasi Gratis</span>
+    </div>
+  </div>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <p class="fcol-label">PT. Brilian Inovatek Nusantara</p>
+      <p class="fcol-desc">Perusahaan engineering dan solusi terintegrasi yang melayani kebutuhan industri, fasilitas komersial, dan institusi dengan kualitas teknis tinggi dan pendekatan profesional.</p>
+    </div>
+    <div class="footer-vdiv"></div>
+    <div>
+      <p class="fcol-label">Kantor</p>
+      <address class="f-address">Jl. Cililitan Besar Nomor 72D,<br>Kel. Kramat Jati, Kec. Kramat Jati,<br>Kota Jakarta Timur, DKI Jakarta 13510</address>
+      <div class="f-contacts">
+        <a href="tel:+6281380006547" class="f-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 813 800 6547</a>
+        <a href="mailto:brilianproject.in@gmail.com" class="f-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>brilianproject.in@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-vdiv"></div>
+    <div>
+      <p class="fcol-label">Workshop</p>
+      <address class="f-address">Jl. Wibawa Mukti II,<br>Kel. Jatisari, Kec. Jatiasih,<br>Kota Bekasi, Jawa Barat 17426</address>
+      <div class="f-contacts">
+        <a href="tel:+6285771578963" class="f-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 857 7157 8963</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="f-copy">© 2026 PT. Brilian Inovatek Nusantara. Seluruh hak dilindungi.</p>
+      <p class="f-copy" style="letter-spacing:.06em">Engineering • Environment • Innovation</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* GALLERY */
+(function(){
+  const slides = document.getElementById('gallerySlides');
+  const thumbs = document.querySelectorAll('.g-thumb');
+  const total = thumbs.length;
+  let cur = 0;
+
+  function goTo(n){
+    cur = (n + total) % total;
+    slides.style.transform = `translateX(-${cur * 100}%)`;
+    thumbs.forEach((t,i) => t.classList.toggle('active', i === cur));
+    // scroll thumb into view
+    thumbs[cur].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  }
+
+  document.getElementById('galleryPrev').addEventListener('click', () => goTo(cur - 1));
+  document.getElementById('galleryNext').addEventListener('click', () => goTo(cur + 1));
+  thumbs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
+
+  // swipe support (touch)
+  let startX = 0;
+  slides.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  slides.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
+  }, {passive:true});
+})();
+
+/* ACCORDION */
+function toggleAcc(header){
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+/* FLOATING CTA */
+window.addEventListener('scroll',()=>{
+  const cta = document.getElementById('floatingCta');
+  if(window.scrollY > 150){
+    cta.style.opacity='1'; cta.style.pointerEvents='auto';
+  } else {
+    cta.style.opacity='0'; cta.style.pointerEvents='none';
+  }
+},{passive:true});
+
+/* MOBILE NAV */
+document.getElementById('hamburger').addEventListener('click',function(){
+  this.classList.toggle('open');
+  const m = document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+});
+document.getElementById('mobProdToggle').addEventListener('click',e=>{
+  e.preventDefault();
+  const s = document.getElementById('mobProdSub');
+  s.classList.toggle('open');
+  e.currentTarget.querySelector('svg').style.transform = s.classList.contains('open')?'rotate(180deg)':'rotate(0)';
+});
+</script>
+</body>
+</html>

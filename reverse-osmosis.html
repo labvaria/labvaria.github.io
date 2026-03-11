@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Reverse Osmosis | PT. Brilian Inovatek Nusantara</title>
+<meta name="description" content="Sistem Reverse Osmosis terbaik dari PT. Brilian Inovatek Nusantara. Teknologi membran RO untuk air minum murni rumah tangga dan industri di Jakarta & Jabodetabek."/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#1a3c5e;--primary-dark:#142d47;--accent:#2e7d9f;--accent2:#e8f4f8;
+  --light:#f4f7fa;--white:#fff;--text:#2d2d2d;--muted:#6b7a8d;--border:#dde3ea;
+  --font:'Segoe UI',Arial,sans-serif;
+  --ro:#0b6e8a;--ro2:#d0eef8;--ro3:#a8dff5;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--white)}
+
+/* NAVBAR — same as others */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:50px;width:auto;object-fit:contain}
+.nav-logo-fallback{font-size:.95rem;font-weight:700;color:var(--primary);display:none}
+.nav-tagline-main{font-size:.72rem;color:var(--accent);letter-spacing:.08em;font-style:italic;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:4px}
+.nav-menu{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:flex;align-items:center;gap:4px;text-decoration:none;color:var(--text);font-size:.86rem;font-weight:500;padding:8px 13px;border-radius:5px;transition:background .2s,color .2s;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--accent2);color:var(--primary)}
+.nav-menu>li>a.active{font-weight:700}
+.nav-menu>li>a svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.nav-menu>li:hover>a svg{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:6px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,.10);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:100}
+.nav-menu>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:.84rem;padding:9px 12px;border-radius:5px;transition:background .15s;white-space:nowrap}
+.dropdown a:hover{background:var(--accent2);color:var(--primary)}
+.dropdown a svg{width:14px;height:14px;stroke:var(--accent);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dropdown-divider{border:none;border-top:1px solid var(--border);margin:4px 0}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:var(--white);font-size:.84rem;font-weight:600;padding:9px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;margin-left:10px;transition:background .2s}
+.nav-cta:hover{background:var(--primary-dark)}
+.nav-cta svg{width:15px;height:15px;fill:currentColor}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--primary);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:12px 24px 20px}
+.mobile-menu.open{display:block}
+.mobile-menu ul{list-style:none}
+.mobile-menu ul li{border-bottom:1px solid var(--border)}
+.mobile-menu ul li>a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;text-decoration:none;color:var(--text);font-size:.9rem;font-weight:500}
+.mob-sub{display:none;padding:4px 0 8px 16px;list-style:none}
+.mob-sub.open{display:block}
+.mob-sub li a{display:block;padding:8px 0;font-size:.84rem;color:var(--muted);text-decoration:none}
+.mob-sub li a:hover{color:var(--primary)}
+.mob-cta{display:block;margin-top:14px;background:var(--primary);color:var(--white);text-align:center;padding:11px;border-radius:5px;font-weight:600;font-size:.9rem;text-decoration:none}
+
+/* HERO — full dark blue gradient khusus RO */
+.hero{position:relative;width:100%;height:500px;overflow:hidden;background:linear-gradient(135deg,#071e2e 0%,#0b3d5e 40%,#0e6688 100%)}
+@media(max-width:768px){.hero{height:380px}}
+@media(max-width:480px){.hero{height:320px}}
+/* animated water particles */
+.hero-particles{position:absolute;inset:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;background:rgba(46,125,159,.25);animation:float linear infinite}
+@keyframes float{0%{transform:translateY(100%) scale(0);opacity:0}20%{opacity:1}80%{opacity:.6}100%{transform:translateY(-120vh) scale(1.5);opacity:0}}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px;z-index:2}
+.hero-badge-ro{display:inline-block;background:rgba(11,110,138,.6);border:1px solid rgba(46,125,159,.5);color:var(--ro3);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:18px;backdrop-filter:blur(8px)}
+.hero-title-ro{font-size:2.6rem;font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;text-shadow:0 4px 20px rgba(0,0,0,.5)}
+@media(max-width:768px){.hero-title-ro{font-size:1.8rem}}
+@media(max-width:480px){.hero-title-ro{font-size:1.4rem}}
+.hero-sub-ro{font-size:.95rem;color:rgba(255,255,255,.8);line-height:1.7;max-width:540px;margin:0 auto 24px}
+/* purity meter */
+.purity-bar{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
+.purity-label{font-size:.8rem;color:rgba(255,255,255,.6);white-space:nowrap}
+.purity-track{width:180px;height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+.purity-fill{height:100%;width:99%;background:linear-gradient(90deg,var(--ro3),#fff);border-radius:4px;animation:fillBar 2s ease-out forwards}
+@keyframes fillBar{from{width:0}to{width:99%}}
+.purity-val{font-size:.88rem;font-weight:800;color:var(--ro3)}
+.hero-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+
+/* BREADCRUMB */
+.bc-wrap{background:var(--light);border-bottom:1px solid var(--border)}
+.bc{max-width:1200px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+.bc a{color:var(--muted);text-decoration:none}.bc a:hover{color:var(--primary)}
+.bc svg{width:10px;height:10px;stroke:var(--muted);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bc strong{color:var(--primary)}
+
+/* HOW IT WORKS */
+.how-section{background:var(--white);padding:64px 24px 56px;border-bottom:1px solid var(--border)}
+.how-inner{max-width:1100px;margin:0 auto}
+.sec-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ro);border-left:3px solid var(--ro);padding-left:10px;margin-bottom:10px}
+.sec-title{font-size:1.6rem;font-weight:800;color:var(--primary);margin-bottom:8px}
+.sec-sub{font-size:.9rem;color:#555;line-height:1.7;max-width:660px;margin-bottom:40px}
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+@media(max-width:900px){.stages{grid-template-columns:repeat(3,1fr);gap:20px}}
+@media(max-width:500px){.stages{grid-template-columns:repeat(2,1fr);gap:16px}}
+.stage{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 8px}
+.stage:not(:last-child)::after{content:'';position:absolute;top:28px;right:-8px;width:16px;height:2px;background:linear-gradient(90deg,var(--ro2),var(--ro3));z-index:1}
+@media(max-width:900px){.stage::after{display:none}}
+.stage-num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--ro2),var(--ro3));display:flex;align-items:center;justify-content:center;margin:0 auto 12px;position:relative;z-index:2;font-size:.78rem;font-weight:800;color:var(--ro)}
+.stage-num svg{width:22px;height:22px;stroke:var(--ro);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.stage-name{font-size:.8rem;font-weight:700;color:var(--primary);margin-bottom:4px;line-height:1.3}
+.stage-desc{font-size:.72rem;color:var(--muted);line-height:1.5}
+
+/* WHY RO */
+.why-section{background:var(--primary);padding:64px 24px}
+.why-inner{max-width:1100px;margin:0 auto}
+.why-title{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:32px;text-align:center}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:768px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+.why-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:22px;transition:background .2s}
+.why-card:hover{background:rgba(255,255,255,.1)}
+.why-icon{width:44px;height:44px;border-radius:10px;background:rgba(11,110,138,.5);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.why-icon svg{width:22px;height:22px;stroke:var(--ro3);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.why-name{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:6px}
+.why-desc{font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.6}
+
+/* PRODUCTS */
+.prod-section{background:var(--ro2);padding:64px 24px 80px}
+.prod-inner{max-width:1200px;margin:0 auto}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:960px){.prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.prod-grid{grid-template-columns:1fr}}
+
+/* scope tabs */
+.scope-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.scope-tab{padding:8px 18px;border-radius:20px;border:1px solid var(--ro);font-size:.8rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s;background:transparent;color:var(--ro)}
+.scope-tab.active,.scope-tab:hover{background:var(--ro);color:#fff}
+
+/* card */
+.p-card{background:var(--white);border:1px solid #b8dff0;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.p-card:hover{box-shadow:0 10px 32px rgba(11,110,138,.12);transform:translateY(-4px)}
+.p-card-img-ph{width:100%;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#c8ecf8,#a0d8f0);flex-shrink:0}
+.p-card-img-ph svg{width:44px;height:44px;stroke:var(--ro);stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.65}
+.p-card-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ro);opacity:.5}
+.p-card-body{padding:15px 16px 18px;display:flex;flex-direction:column;flex:1}
+.p-card-scope{font-size:.66rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ro);margin-bottom:4px}
+.p-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.p-card-name{font-size:.9rem;font-weight:700;color:var(--primary);line-height:1.35;flex:1;min-width:0}
+.p-card-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.p-card-price{font-size:.82rem;font-weight:700;color:var(--ro);white-space:nowrap}
+.p-card-cta{display:inline-flex;align-items:center;gap:5px;background:var(--ro);color:#fff;font-size:.72rem;font-weight:700;padding:6px 12px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.p-card-cta:hover{background:#25D366}
+.p-card-cta svg{width:11px;height:11px;fill:currentColor}
+.p-card-desc{font-size:.78rem;color:#666;line-height:1.65;margin-bottom:12px;flex:1}
+.p-card-specs{list-style:none;display:flex;flex-direction:column;gap:5px}
+.p-card-specs li{display:flex;align-items:flex-start;gap:6px;font-size:.74rem;color:var(--muted);line-height:1.4}
+.p-card-specs li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ro);flex-shrink:0;margin-top:4px}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:28px;right:28px;z-index:998;opacity:0;pointer-events:none;transition:opacity .3s}
+.float-cta.show{opacity:1;pointer-events:auto}
+.float-cta a{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:.88rem;padding:13px 20px;border-radius:50px;box-shadow:0 6px 24px rgba(37,211,102,.4);text-decoration:none;transition:background .2s,transform .2s}
+.float-cta a:hover{background:#1da851;transform:translateY(-2px)}
+.float-cta a svg{width:20px;height:20px;fill:currentColor}
+.float-pulse{position:absolute;top:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:#ff4757}
+.float-pulse::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:rgba(255,71,87,.35);animation:fp 1.8s infinite}
+@keyframes fp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:0}}
+@media(max-width:480px){.float-cta a span{display:none}.float-cta a{padding:14px;border-radius:50%}}
+
+/* FOOTER */
+footer{background:#111d2b;color:rgba(255,255,255,.75)}
+.footer-main{max-width:1200px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.4fr 1px 1fr 1px 1fr;gap:40px;align-items:start}
+.fvdiv{background:rgba(255,255,255,.1);height:100%;min-height:120px}
+.fcol-lbl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.fcol-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.6)}
+.f-addr{font-style:normal;font-size:.83rem;line-height:1.9;color:rgba(255,255,255,.65)}
+.f-contacts{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.f-lnk{font-size:.83rem;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:8px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08)}
+.fbot-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.f-copy{font-size:.75rem;color:rgba(255,255,255,.4)}
+@media(max-width:900px){.nav-menu,.nav-cta{display:none}.hamburger{display:flex}}
+@media(max-width:768px){.footer-main{grid-template-columns:1fr;gap:28px}.fvdiv{display:none}}
+@media(max-width:480px){.nav-inner{height:60px}.nav-logo img{height:42px}.fbot-inner{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="/water-treatment/" class="nav-logo">
+      <img src="https://i.imgur.com/ul8N0Ny.png" alt="Logo PT. Brilian Inovatek Nusantara" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="nav-logo-fallback">PT. Brilian Inovatek Nusantara</span>
+      <div><span class="nav-tagline-main">Engineering ▪ Environment ▪ Innovation</span></div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="/water-treatment/">Home</a></li>
+        <li>
+          <a href="/water-treatment/product/" class="active">Product <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown">
+            <a href="/water-treatment/residential/"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg>Residential Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/industrial/"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Industrial Product</a>
+            <div class="dropdown-divider"></div>
+            <a href="/water-treatment/reverse-osmosis/"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>Reverse Osmosis</a>
+          </div>
+        </li>
+        <li><a href="/water-treatment/projects/">Projects</a></li>
+        <li><a href="/water-treatment/faq/">FAQ</a></li>
+        <li><a href="/water-treatment/article/">Article</a></li>
+        <li><a href="/water-treatment/contact/">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/628138006547" target="_blank" rel="noopener" class="nav-cta">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Konsultasi Gratis
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/water-treatment/">Home</a></li>
+      <li>
+        <a href="/water-treatment/product/" id="mobProdToggle" style="color:var(--primary);font-weight:700">Product <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="mob-sub" id="mobProdSub">
+          <li><a href="/water-treatment/residential/">Residential Product</a></li>
+          <li><a href="/water-treatment/industrial/">Industrial Product</a></li>
+          <li><a href="/water-treatment/reverse-osmosis/" style="color:var(--primary);font-weight:700">Reverse Osmosis</a></li>
+        </ul>
+      </li>
+      <li><a href="/water-treatment/projects/">Projects</a></li>
+      <li><a href="/water-treatment/faq/">FAQ</a></li>
+      <li><a href="/water-treatment/article/">Article</a></li>
+      <li><a href="/water-treatment/contact/">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/628138006547" target="_blank" rel="noopener" class="mob-cta">Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- HERO — RO special -->
+<section class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <span class="hero-badge-ro">Teknologi Membran Reverse Osmosis</span>
+    <h1 class="hero-title-ro">Air Murni Tanpa Kompromi<br>Teknologi RO Terdepan</h1>
+    <p class="hero-sub-ro">Sistem Reverse Osmosis menyaring hingga 99% kontaminan — logam berat, bakteri, virus, dan zat kimia berbahaya — menghasilkan air minum berkualitas premium langsung dari kran Anda.</p>
+    <div class="purity-bar">
+      <span class="purity-label">Tingkat Kemurnian</span>
+      <div class="purity-track"><div class="purity-fill"></div></div>
+      <span class="purity-val">99%</span>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="bc-wrap">
+  <div class="bc">
+    <a href="/water-treatment/">Home</a>
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <a href="/water-treatment/product/">Produk</a>
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <strong>Reverse Osmosis</strong>
+  </div>
+</div>
+
+<!-- HOW RO WORKS -->
+<section class="how-section">
+  <div class="how-inner">
+    <span class="sec-label">Cara Kerja</span>
+    <h2 class="sec-title">Bagaimana Sistem RO Menyaring Air Anda?</h2>
+    <p class="sec-sub">Teknologi Reverse Osmosis menggunakan tekanan tinggi untuk mendorong air melewati membran semi-permeabel berukuran 0,0001 mikron — menyaring partikel yang bahkan tidak terlihat oleh mata.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-num"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div>
+        <div class="stage-name">Sediment Filter</div>
+        <div class="stage-desc">Menahan partikel besar: pasir, lumpur, karat ≥ 5 mikron</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18"/></svg></div>
+        <div class="stage-name">Carbon Block</div>
+        <div class="stage-desc">Menyerap klorin, bau, rasa, dan VOC dari air</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></div>
+        <div class="stage-name">Membran RO</div>
+        <div class="stage-desc">Menyaring logam berat, bakteri, virus, hingga 99%</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><svg viewBox="0 0 24 24"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/></svg></div>
+        <div class="stage-name">Post Carbon</div>
+        <div class="stage-desc">Memperbaiki rasa dan memastikan kesegaran air</div>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="stage-name">Air Siap Minum</div>
+        <div class="stage-desc">Output jernih, bersih, dan aman dikonsumsi langsung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY RO -->
+<section class="why-section">
+  <div class="why-inner">
+    <h2 class="why-title">Mengapa Memilih Sistem RO Brilian?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <div class="why-name">Kemurnian 99%</div>
+        <div class="why-desc">Membran TFC premium menyaring hingga 99% kontaminan termasuk logam berat, nitrat, dan fluorida</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="why-name">Instalasi Profesional</div>
+        <div class="why-desc">Pemasangan oleh teknisi bersertifikat dengan uji kebocoran dan pengujian kualitas air setelah instalasi</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="why-name">Hemat Jangka Panjang</div>
+        <div class="why-desc">Ganti filter berkala lebih murah dibanding pembelian air galon — ROI positif dalam 6–12 bulan</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><circle cx="12" cy="15" r="1"/></svg></div>
+        <div class="why-name">Rasa Segar Alami</div>
+        <div class="why-desc">Post-carbon filter memastikan air memiliki rasa segar tanpa bau kaporit atau logam yang tidak menyenangkan</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="why-name">Kompak & Estetis</div>
+        <div class="why-desc">Desain under-sink yang ringkas, tidak mengganggu estetika dapur, dan mudah dioperasikan</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="why-name">Garansi & Purna Jual</div>
+        <div class="why-desc">Layanan penggantian membran, filter, dan konsultasi kualitas air oleh tim teknis kami</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="prod-section">
+  <div class="prod-inner">
+    <span class="sec-label" style="color:var(--ro);border-color:var(--ro)">Pilihan Produk RO</span>
+    <h2 class="sec-title" style="margin-bottom:8px">Sistem Reverse Osmosis untuk Setiap Kebutuhan</h2>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:20px">Tersedia dalam skala rumah tangga maupun industri — pilih sesuai kapasitas dan kebutuhan Anda.</p>
+    <div class="scope-tabs">
+      <button class="scope-tab active" data-scope="all">Semua</button>
+      <button class="scope-tab" data-scope="home">Rumah Tangga</button>
+      <button class="scope-tab" data-scope="industry">Industri</button>
+    </div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- FLOATING CTA -->
+<div class="float-cta" id="floatCta">
+  <div style="position:relative">
+    <div class="float-pulse"></div>
+    <a href="https://wa.me/628138006547?text=Halo%2C%20saya%20ingin%20konsultasi%20sistem%20Reverse%20Osmosis" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      <span>Konsultasi Gratis</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div><p class="fcol-lbl">PT. Brilian Inovatek Nusantara</p><p class="fcol-desc">Perusahaan engineering dan solusi terintegrasi yang melayani kebutuhan industri, fasilitas komersial, dan institusi dengan kualitas teknis tinggi dan pendekatan profesional.</p></div>
+    <div class="fvdiv"></div>
+    <div>
+      <p class="fcol-lbl">Kantor</p>
+      <address class="f-addr">Jl. Cililitan Besar Nomor 72D,<br>Kel. Kramat Jati, Kec. Kramat Jati,<br>Kota Jakarta Timur, DKI Jakarta 13510</address>
+      <div class="f-contacts">
+        <a href="tel:+6281380006547" class="f-lnk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 813 800 6547</a>
+        <a href="mailto:brilianproject.in@gmail.com" class="f-lnk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>brilianproject.in@gmail.com</a>
+      </div>
+    </div>
+    <div class="fvdiv"></div>
+    <div>
+      <p class="fcol-lbl">Workshop</p>
+      <address class="f-addr">Jl. Wibawa Mukti II,<br>Kel. Jatisari, Kec. Jatiasih,<br>Kota Bekasi, Jawa Barat 17426</address>
+      <div class="f-contacts"><a href="tel:+6285771578963" class="f-lnk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+62 857 7157 8963</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="fbot-inner"><p class="f-copy">© 2026 PT. Brilian Inovatek Nusantara. Seluruh hak dilindungi.</p><p class="f-copy" style="letter-spacing:.06em">Engineering • Environment • Innovation</p></div></div>
+</footer>
+
+<script>
+/* ── PARTICLES ── */
+(function(){
+  const wrap=document.getElementById('particles');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const sz=20+Math.random()*60;
+    p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;animation-duration:${6+Math.random()*10}s;animation-delay:${Math.random()*8}s;opacity:${.1+Math.random()*.3}`;
+    wrap.appendChild(p);
+  }
+})();
+
+/* ── PRODUCTS ── */
+const PRODUCTS = [
+  // home
+  {id:'ro1', scope:'home', name:'BRL RO Rumah Tangga', price:4199500,
+   desc:'Sistem RO kompak 5 tahap untuk air minum berkualitas tinggi langsung dari kran dapur Anda.',
+   specs:['Kapasitas: 50–75 GPD','5 tahap filtrasi lengkap','Membran TFC berkualitas','Tangki 3,2 galon'],
+   icon:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>'},
+  {id:'ro2', scope:'home', name:'BRL RO 7 Tahap Premium', price:6800000,
+   desc:'Sistem RO 7 tahap dengan filter alkali dan mineralizer — air minum sehat dengan pH seimbang.',
+   specs:['Kapasitas: 75 GPD','7 tahap termasuk alkali filter','pH output: 7,5–8,5','Display TDS monitor'],
+   icon:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'},
+  {id:'ro3', scope:'home', name:'BRL RO Undersink Slim', price:5500000,
+   desc:'Desain ultra-slim untuk dapur modern — mudah dipasang di bawah wastafel tanpa memakan banyak ruang.',
+   specs:['Kapasitas: 100 GPD','Tanpa tangki (tankless)','Output instan: 0,5 L/menit','Dimensi kompak: 36×15×45 cm'],
+   icon:'<rect x="2" y="7" width="20" height="13" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="15"/>'},
+  // industry
+  {id:'ro4', scope:'industry', name:'BRL RO Industri 10', price:77999000,
+   desc:'Sistem RO industri 1.000 LPH untuk hotel, klinik, dan fasilitas komersial dengan kebutuhan air tinggi.',
+   specs:['Kapasitas: 1.000 LPH','Membran: Dow Filmtec 4040','Panel kontrol otomatis','Pre-filter lengkap'],
+   icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>'},
+  {id:'ro5', scope:'industry', name:'BRL RO Industri 20', price:233099000,
+   desc:'Kapasitas 2.000 LPH untuk industri makanan minuman, farmasi, dan manufaktur yang memerlukan kemurnian tinggi.',
+   specs:['Kapasitas: 2.000 LPH','Membran: 8040 spiral wound','Sistem CIP terintegrasi','PLC monitoring'],
+   icon:'<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>'},
+];
+
+function fmtPrice(p){ return 'Rp '+p.toLocaleString('id-ID'); }
+const WA=`<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>`;
+
+let activeScope='all';
+
+function render(){
+  const list = activeScope==='all' ? PRODUCTS : PRODUCTS.filter(p=>p.scope===activeScope);
+  document.getElementById('prodGrid').innerHTML = list.map(p=>{
+    const lbl = p.scope==='home'?'Rumah Tangga':'Industri';
+    const msg = encodeURIComponent(`Halo, saya tertarik dengan ${p.name} (${fmtPrice(p.price)}). Mohon informasi lebih lanjut.`);
+    return `<div class="p-card">
+      <div class="p-card-img-ph"><svg viewBox="0 0 24 24">${p.icon}</svg><span>${lbl}</span></div>
+      <div class="p-card-body">
+        <div class="p-card-scope">${lbl}</div>
+        <div class="p-card-top">
+          <h3 class="p-card-name">${p.name}</h3>
+          <div class="p-card-right">
+            <div class="p-card-price">${fmtPrice(p.price)}</div>
+            <a href="/water-treatment/reverse-osmosis/${p.id}/" class="p-card-cta"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><polyline points="9 18 15 12 9 6"/></svg> Lihat Produk</a>
+          </div>
+        </div>
+        <p class="p-card-desc">${p.desc}</p>
+        <ul class="p-card-specs">${p.specs.map(s=>`<li>${s}</li>`).join('')}</ul>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+document.querySelectorAll('.scope-tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.scope-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeScope=btn.dataset.scope;
+    render();
+  });
+});
+render();
+
+/* FLOATING CTA */
+window.addEventListener('scroll',()=>{document.getElementById('floatCta').classList.toggle('show',window.scrollY>200);},{passive:true});
+
+/* MOBILE NAV */
+document.getElementById('hamburger').addEventListener('click',function(){this.classList.toggle('open');const m=document.getElementById('mobileMenu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'));});
+document.getElementById('mobProdToggle').addEventListener('click',e=>{e.preventDefault();const s=document.getElementById('mobProdSub');s.classList.toggle('open');e.currentTarget.querySelector('svg').style.transform=s.classList.contains('open')?'rotate(180deg)':'rotate(0)';});
+</script>
+</body>
+</html>
