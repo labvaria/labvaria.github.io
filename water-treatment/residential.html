@@ -124,9 +124,8 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 /* card */
 .p-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
 .p-card:hover{box-shadow:0 10px 32px rgba(26,60,94,.11);transform:translateY(-4px)}
-.p-card-img-ph{width:100%;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#dff0f8,#b8dff0);flex-shrink:0}
-.p-card-img-ph svg{width:44px;height:44px;stroke:#1a6fa0;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.6}
-.p-card-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#1a6fa0;opacity:.5}
+.p-card-img-ph{width:100%;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex-shrink:0}
+.p-card-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#1a6fa0}
 .p-card-body{padding:15px 16px 18px;display:flex;flex-direction:column;flex:1}
 /* name + price row */
 .p-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap}
@@ -331,50 +330,42 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
 const PRODUCTS = [
   {id:'r1', name:'BRL RO Rumah Tangga',  price:4199500,
    desc:'Sistem Reverse Osmosis kompak untuk air minum langsung dari kran. Ideal untuk dapur rumah tangga dengan kebutuhan air minum harian.',
-   specs:['Kapasitas: 50–75 GPD','Tahapan: 5 stage filtrasi','Membran RO: TFC berkualitas tinggi','Dilengkapi tangki penyimpanan 3,2 galon'],
-   icon:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>'},
+   specs:['Kapasitas: 50–75 GPD','Tahapan: 5 stage filtrasi','Membran RO: TFC berkualitas tinggi','Dilengkapi tangki penyimpanan 3,2 galon']},
   {id:'r2', name:'BRL Filter Air PDAM',  price:11799000,
    desc:'Dirancang khusus mengatasi masalah kaporit, bau, dan sedimen pada air PDAM. Cocok untuk rumah dengan suplai PDAM penuh.',
-   specs:['Media: Karbon aktif + pasir silika','Kapasitas tabung: 10" × 20"','Sistem: Manual backwash','Debit air: 5–8 liter/menit'],
-   icon:'<path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><circle cx="12" cy="14" r="2"/>'},
+   specs:['Media: Karbon aktif + pasir silika','Kapasitas tabung: 10" × 20"','Sistem: Manual backwash','Debit air: 5–8 liter/menit']},
   {id:'r3', name:'BRL Standar I',        price:14299000,
    desc:'Paket filter air sumur bor entry-level dengan media filter tunggal. Solusi ekonomis untuk air sumur dengan masalah ringan hingga sedang.',
-   specs:['Media: Manganese greensand + silika','Tabung FRP: 8" × 44"','Valve: Manual','Kapasitas: 300–500 liter/jam'],
-   icon:'<path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><line x1="12" y1="10" x2="12" y2="18"/>'},
+   specs:['Media: Manganese greensand + silika','Tabung FRP: 8" × 44"','Valve: Manual','Kapasitas: 300–500 liter/jam']},
   {id:'r4', name:'BRL Standar II',       price:19499000,
    desc:'Upgrade dari Standar I dengan kapasitas tabung lebih besar dan media filter ganda, ideal untuk rumah dengan konsumsi air lebih tinggi.',
-   specs:['Media: Manganese + karbon aktif','Tabung FRP: 10" × 54"','Valve: Manual','Kapasitas: 500–800 liter/jam'],
-   icon:'<path d="M12 3C8 9 5 13 5 16a7 7 0 0014 0c0-3-3-7-7-13z"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="12" y1="9" x2="12" y2="15"/>'},
+   specs:['Media: Manganese + karbon aktif','Tabung FRP: 10" × 54"','Valve: Manual','Kapasitas: 500–800 liter/jam']},
   {id:'r5', name:'BRL Seri Unggulan',    price:18299000,
    desc:'Sistem filter dengan media premium dan performa tinggi untuk mengatasi kandungan besi dan mangan tinggi pada air sumur bor dalam.',
-   specs:['Media: Birm + manganese + karbon','Tabung FRP: 10" × 54"','Valve: Semi-otomatis','Kapasitas: 600–900 liter/jam'],
-   icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>'},
+   specs:['Media: Birm + manganese + karbon','Tabung FRP: 10" × 54"','Valve: Semi-otomatis','Kapasitas: 600–900 liter/jam']},
   {id:'r6', name:'BRL Pilihan Utama',    price:25999000,
    desc:'Solusi terbaik untuk rumah tangga dengan kebutuhan air kompleks — kombinasi filter besi, pelembut, dan karbon aktif dalam satu sistem terintegrasi.',
-   specs:['Media: Multi-layer premium','Tabung FRP: 12" × 52"','Valve: Otomatis timer','Kapasitas: 800–1200 liter/jam'],
-   icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="12" r="3"/>'},
+   specs:['Media: Multi-layer premium','Tabung FRP: 12" × 52"','Valve: Otomatis timer','Kapasitas: 800–1200 liter/jam']},
   {id:'r7', name:'BRL Auto I',           price:24799000,
    desc:'Filter otomatis dengan sistem regenerasi terjadwal. Cocok untuk pengguna yang menginginkan kemudahan perawatan tanpa backwash manual.',
-   specs:['Media: Manganese greensand','Tabung FRP: 10" × 54"','Valve: Otomatis (timer digital)','Kapasitas: 600–1000 liter/jam'],
-   icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7M17 14v7"/>'},
+   specs:['Media: Manganese greensand','Tabung FRP: 10" × 54"','Valve: Otomatis (timer digital)','Kapasitas: 600–1000 liter/jam']},
   {id:'r8', name:'BRL Auto II',          price:29999000,
    desc:'Versi lanjutan BRL Auto I dengan kapasitas lebih besar dan media filter ganda. Ideal untuk rumah dengan 3–5 kamar mandi.',
-   specs:['Media: Manganese + karbon aktif','Tabung FRP: 12" × 52"','Valve: Otomatis (sensor flow)','Kapasitas: 1000–1500 liter/jam'],
-   icon:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7M17 14v7"/><circle cx="8" cy="17" r="2"/>'},
+   specs:['Media: Manganese + karbon aktif','Tabung FRP: 12" × 52"','Valve: Otomatis (sensor flow)','Kapasitas: 1000–1500 liter/jam']},
   {id:'r9', name:'BRL Auto III',         price:44399000,
    desc:'Sistem filter otomatis premium kapasitas besar — solusi menyeluruh untuk rumah mewah, kos-kosan, atau hunian dengan kebutuhan air sangat tinggi.',
-   specs:['Media: Multi-layer 3 tabung','Tabung FRP: 13" × 54" (×2)','Valve: Otomatis (sensor + timer)','Kapasitas: 1500–2500 liter/jam'],
-   icon:'<rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/>'},
+   specs:['Media: Multi-layer 3 tabung','Tabung FRP: 13" × 54" (×2)','Valve: Otomatis (sensor + timer)','Kapasitas: 1500–2500 liter/jam']},
 ];
 
 function fmtPrice(p){ return 'Rp '+p.toLocaleString('id-ID'); }
 
-const WA_SVG = `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>`;
-
 function makeCard(p){
   const waMsg = encodeURIComponent(`Halo, saya tertarik dengan produk ${p.name} (${fmtPrice(p.price)}). Boleh saya dapatkan informasi lebih lanjut?`);
   return `<div class="p-card">
-    <div class="p-card-img-ph"><svg viewBox="0 0 24 24">${p.icon}</svg><span>Residential</span></div>
+    <div class="p-card-img-ph" style="background:linear-gradient(135deg,#ffffff,#f7f9fb);text-align:center;">
+      <img src="https://i.imgur.com/MAEYpwk.png" alt="BRL Logo" style="width:150px;height:auto;">
+      <span>Residential</span>
+    </div>
     <div class="p-card-body">
       <div class="p-card-top">
         <h3 class="p-card-name">${p.name}</h3>
@@ -444,7 +435,4 @@ document.getElementById('mobProdToggle').addEventListener('click',e=>{
 });
 </script>
 </body>
-
 </html>
-
-
