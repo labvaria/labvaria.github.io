@@ -123,9 +123,8 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 /* card */
 .p-card{background:var(--white);border:1px solid #f0ddb8;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
 .p-card:hover{box-shadow:0 10px 32px rgba(196,122,26,.13);transform:translateY(-4px)}
-.p-card-img-ph{width:100%;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--ind2),var(--ind3));flex-shrink:0}
-.p-card-img-ph svg{width:44px;height:44px;stroke:#a05c10;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.6}
-.p-card-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#a05c10;opacity:.5}
+.p-card-img-ph{width:100%;height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex-shrink:0}
+.p-card-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#a05c10}
 .p-card-body{padding:15px 16px 18px;display:flex;flex-direction:column;flex:1}
 .p-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap}
 .p-card-name{font-size:.9rem;font-weight:700;color:var(--primary);line-height:1.35;flex:1;min-width:0}
@@ -327,49 +326,42 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
 const PRODUCTS = [
   {id:'i1', name:'BRL RO Industri 10',          price:77999000,
    desc:'Sistem Reverse Osmosis industri kapasitas 1.000 LPH — ideal untuk hotel, klinik, dan fasilitas komersial dengan kebutuhan air bersih harian tinggi.',
-   specs:['Kapasitas: 1.000 LPH (10 m³/hari)','Membran: Dow Filmtec / Toray','Tekanan operasi: 10–15 bar','Dilengkapi pre-filter & post-filter'],
-   icon:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>'},
+   specs:['Kapasitas: 1.000 LPH (10 m³/hari)','Membran: Dow Filmtec / Toray','Tekanan operasi: 10–15 bar','Dilengkapi pre-filter & post-filter']},
   {id:'i2', name:'BRL RO Industri 20',          price:233099000,
    desc:'Sistem RO kapasitas besar 2.000 LPH untuk kebutuhan air proses produksi, farmasi, dan industri makanan minuman yang memerlukan kemurnian tinggi.',
-   specs:['Kapasitas: 2.000 LPH (20 m³/hari)','Membran: 4040 / 8040 spiral wound','Panel kontrol: PLC otomatis','Sistem CIP (Clean In Place)'],
-   icon:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>'},
+   specs:['Kapasitas: 2.000 LPH (20 m³/hari)','Membran: 4040 / 8040 spiral wound','Panel kontrol: PLC otomatis','Sistem CIP (Clean In Place)']},
   {id:'i3', name:'BRL Sistem Gedung',            price:72819000,
    desc:'Paket water treatment terintegrasi untuk gedung bertingkat, apartemen, dan perkantoran — memastikan kualitas air di seluruh lantai secara konsisten.',
-   specs:['Multimedia filter + softener','Kapasitas: 2.000–5.000 LPH','Tabung FRP: 24" × 72"','Panel otomatis + flow meter'],
-   icon:'<path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/>'},
+   specs:['Multimedia filter + softener','Kapasitas: 2.000–5.000 LPH','Tabung FRP: 24" × 72"','Panel otomatis + flow meter']},
   {id:'i4', name:'BRL Sistem Manufaktur 100',    price:101895000,
    desc:'Sistem pengolahan air untuk fasilitas manufaktur dengan kebutuhan air proses 10 m³/jam. Dilengkapi sistem backwash otomatis dan monitoring real-time.',
-   specs:['Kapasitas: 10.000 LPH','Filter bertingkat: 3 stage','Kontrol: Otomatis penuh','Flow meter & pressure gauge'],
-   icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>'},
+   specs:['Kapasitas: 10.000 LPH','Filter bertingkat: 3 stage','Kontrol: Otomatis penuh','Flow meter & pressure gauge']},
   {id:'i5', name:'BRL Industri Skala Menengah', price:148915000,
    desc:'Solusi komprehensif untuk pabrik skala menengah — mencakup pre-treatment, filtrasi utama, dan polishing untuk air proses maupun air sanitasi.',
-   specs:['Kapasitas: 15.000–20.000 LPH','Iron removal + softener + RO','Tangki buffer 10.000 liter','SCADA monitoring opsional'],
-   icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>'},
+   specs:['Kapasitas: 15.000–20.000 LPH','Iron removal + softener + RO','Tangki buffer 10.000 liter','SCADA monitoring opsional']},
   {id:'i6', name:'BRL Industri Skala Besar',    price:222459000,
    desc:'Sistem water treatment lengkap untuk industri skala besar dengan kapasitas hingga 30 m³/jam. Dirancang untuk operasi 24 jam tanpa gangguan.',
-   specs:['Kapasitas: 25.000–30.000 LPH','Multi-stage filtration system','Redundancy unit (backup)','Remote monitoring & alarm'],
-   icon:'<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>'},
+   specs:['Kapasitas: 25.000–30.000 LPH','Multi-stage filtration system','Redundancy unit (backup)','Remote monitoring & alarm']},
   {id:'i7', name:'BRL Industri Skala Utama',    price:427499000,
    desc:'Flagship sistem water treatment industri untuk kawasan produksi berskala besar — integrasi penuh dari sumber air baku hingga air siap proses.',
-   specs:['Kapasitas: 50.000+ LPH','Sistem modular & expandable','DCS/PLC control system','SLA service & maintenance'],
-   icon:'<path d="M2 20h20M4 20V10l8-7 8 7v10"/><rect x="9" y="14" width="6" height="6"/>'},
+   specs:['Kapasitas: 50.000+ LPH','Sistem modular & expandable','DCS/PLC control system','SLA service & maintenance']},
   {id:'i8', name:'BRL Sistem Filtrasi Dasar',   price:164355000,
    desc:'Sistem filtrasi industri entry-level yang mencakup sedimentasi, filtrasi multi-media, dan desinfeksi UV — cocok untuk industri ringan dan UMKM skala besar.',
-   specs:['Kapasitas: 8.000–12.000 LPH','Sand filter + carbon filter','UV sterilizer 55W','Sistem manual & semi-otomatis'],
-   icon:'<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/>'},
+   specs:['Kapasitas: 8.000–12.000 LPH','Sand filter + carbon filter','UV sterilizer 55W','Sistem manual & semi-otomatis']},
   {id:'i9', name:'BRL Sistem Filtrasi Lanjutan',price:315615250,
    desc:'Sistem filtrasi lanjutan dengan teknologi nano-filter dan ultrafiltrasi — ideal untuk industri yang memerlukan standar kemurnian air sangat tinggi.',
-   specs:['Kapasitas: 20.000 LPH','Ultrafiltrasi (UF) membrane','TOC removal system','Kualitas air: < 1 NTU output'],
-   icon:'<circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>'},
+   specs:['Kapasitas: 20.000 LPH','Ultrafiltrasi (UF) membrane','TOC removal system','Kualitas air: < 1 NTU output']},
 ];
 
 function fmtPrice(p){ return 'Rp '+p.toLocaleString('id-ID'); }
-const WA = `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>`;
 
 function makeCard(p){
   const msg = encodeURIComponent(`Halo, saya tertarik dengan produk ${p.name} (${fmtPrice(p.price)}). Mohon informasi lebih lanjut.`);
   return `<div class="p-card">
-    <div class="p-card-img-ph"><svg viewBox="0 0 24 24">${p.icon}</svg><span>Industrial</span></div>
+    <div class="p-card-img-ph" style="background:linear-gradient(135deg,#ffffff,#f5f7fa);text-align:center;">
+      <img src="https://i.imgur.com/MAEYpwk.png" alt="BRL Logo" style="width:150px;height:auto;">
+      <span>Industrial</span>
+    </div>
     <div class="p-card-body">
       <div class="p-card-top">
         <h3 class="p-card-name">${p.name}</h3>
@@ -403,7 +395,4 @@ document.getElementById('hamburger').addEventListener('click',function(){this.cl
 document.getElementById('mobProdToggle').addEventListener('click',e=>{e.preventDefault();const s=document.getElementById('mobProdSub');s.classList.toggle('open');e.currentTarget.querySelector('svg').style.transform=s.classList.contains('open')?'rotate(180deg)':'rotate(0)';});
 </script>
 </body>
-
 </html>
-
-
