@@ -473,7 +473,7 @@ function fmtPrice(p){ return 'Rp '+p.toLocaleString('id-ID'); }
 
 function makeCard(p){
   const isRes = p.cat==='res';
-  const bg = isRes ? 'linear-gradient(135deg,#dff0f8,#b8dff0)' : 'linear-gradient(135deg,#fef3e2,#fde0a0)';
+  const bg = isRes ? 'linear-gradient(135deg,#ffffff,#f7f9fb)' : 'linear-gradient(135deg,#ffffff,#f5f7fa)';
   const stroke = isRes ? '#1a6fa0' : '#a05c10';
   const catLabel = isRes ? 'Residensial' : 'Industrial';
   const catCls = isRes ? 'cat-res' : 'cat-ind';
@@ -481,7 +481,7 @@ function makeCard(p){
   const badgeCat = isRes
     ? `<span class="p-badge p-badge-res">Residensial</span>`
     : `<span class="p-badge p-badge-ind">Industrial</span>`;
-  const badgeBest = p.best ? `<span class="p-badge p-badge-best" style="${isRes?'left:auto;right:10px':'left:auto;right:10px'}">★ Best</span>` : '';
+  const badgeBest = p.best ? `<span class="p-badge p-badge-best" style="left:auto;right:10px">★ Best</span>` : '';
 
   return `<div class="p-card" data-id="${p.id}" data-cat="${p.cat}" data-price="${p.price}" data-name="${p.name}" data-best="${p.best}">
     ${badgeCat}${badgeBest}
@@ -490,9 +490,9 @@ function makeCard(p){
         Lihat Produk <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
     </div>
-    <div class="p-card-img-ph" style="background:${bg}">
-      <svg viewBox="0 0 24 24" style="stroke:${stroke}">${ICONS[p.id]||''}</svg>
-      <span style="color:${stroke}">${catLabel}</span>
+    <div class="p-card-img-ph" style="background:${bg};display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;">
+      <img src="https://i.imgur.com/MAEYpwk.png" alt="BRL Logo" style="width:150px;height:auto;">
+      <span style="color:${stroke};font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;">${catLabel}</span>
     </div>
     <div class="p-card-body">
       <div class="p-card-cat ${catCls}">${catLabel}</div>
