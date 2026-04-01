@@ -449,8 +449,7 @@ function render(){
     const lbl = p.scope==='home'?'Rumah Tangga':'Industri';
     const msg = encodeURIComponent(`Halo, saya tertarik dengan ${p.name} (${fmtPrice(p.price)}). Mohon informasi lebih lanjut.`);
     return `<div class="p-card">
-      <div class="p-card-img-ph" text-align:center;">
-      <img src="https://i.imgur.com/MAEYpwk.png" alt="BRL Logo" style="width:150px;height:auto;">
+      <div class="p-card-img-ph"><svg viewBox="0 0 24 24">${p.icon}</svg><span>${lbl}</span></div>
       <div class="p-card-body">
         <div class="p-card-scope">${lbl}</div>
         <div class="p-card-top">
