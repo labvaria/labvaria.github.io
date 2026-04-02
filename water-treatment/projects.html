@@ -88,7 +88,6 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 @media(max-width:480px){.hero-projects-title{font-size:1.4rem}}
 .hero-projects-sub{font-size:.92rem;color:rgba(255,255,255,.82);max-width:520px;line-height:1.6}
 
-
 /* ── FILTER + NOTE BAR ── */
 .filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:16px 0}
 .filter-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -109,8 +108,8 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .proj-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--white);transition:box-shadow .25s,transform .25s;cursor:pointer}
 .proj-card:hover{box-shadow:0 10px 32px rgba(26,60,94,.12);transform:translateY(-4px)}
 .proj-card-img{width:100%;height:210px;object-fit:cover;display:block}
-.proj-card-img-ph{width:100%;height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--accent2),#c8e6f3)}
-.proj-card-img-ph svg{width:52px;height:52px;stroke:var(--accent);stroke-width:1.3;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.6}
+.proj-card-img-ph{width:100%;height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;}
+.proj-card-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
 .proj-card-body{padding:18px}
 .proj-card-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px}
 .tag-residential{background:#e8f4f8;color:#2e7d9f}
@@ -143,23 +142,22 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .detail-overlay.open .detail-wrapper{transform:translateY(0)}
 .detail-panel{background:var(--white);border-radius:14px;width:100%;overflow:hidden}
 
-/* Sticky header: breadcrumb + tombol X dalam satu bar */
+/* Sticky header */
 .detail-breadcrumb{position:sticky;top:0;z-index:20;background:var(--white);padding:11px 48px 11px 24px;display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--muted);border-bottom:1px solid var(--border);border-radius:12px 12px 0 0;margin:0}
 .detail-breadcrumb a{color:var(--accent);text-decoration:none}
 .detail-breadcrumb a:hover{text-decoration:underline}
 .detail-breadcrumb span{color:var(--border)}
-/* Tombol X menempel di dalam breadcrumb bar */
 .detail-close{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:30;box-shadow:0 1px 4px rgba(0,0,0,.12);transition:background .2s}
 .detail-close:hover{background:var(--light)}
 .detail-close svg{width:12px;height:12px;stroke:var(--text);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 
-/* Top section: image left + summary right */
+/* Top section */
 .detail-top{display:grid;grid-template-columns:1fr 300px;gap:0}
 @media(max-width:720px){.detail-top{grid-template-columns:1fr}}
-.detail-img-wrap{background:linear-gradient(135deg,var(--accent2),#c8e6f3);min-height:220px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.detail-img-wrap{background:linear-gradient(135deg,#ffffff,#f7f9fb);min-height:220px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .detail-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.detail-img-ph{width:100%;height:100%;min-height:220px;display:flex;align-items:center;justify-content:center}
-.detail-img-ph svg{width:90px;height:90px;stroke:var(--accent);stroke-width:1;fill:none;opacity:.45}
+.detail-img-ph{width:100%;height:100%;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;}
+.detail-img-ph span{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
 .detail-summary{background:var(--light);border-left:1px solid var(--border);padding:20px 20px}
 .detail-summary-title{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
 .ds-table{width:100%;border-collapse:collapse}
@@ -193,7 +191,7 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .csr-card.result .csr-label{color:#2e7d9f}
 .csr-text{font-size:.79rem;color:#444;line-height:1.65}
 
-/* Process flow + FAQ vertikal */
+/* Process flow + FAQ */
 .detail-bottom-grid{display:flex;flex-direction:column;gap:20px;margin-bottom:20px}
 .process-section{margin-bottom:0}
 .process-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
@@ -227,14 +225,13 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .summary-konsul p{font-size:.82rem;color:var(--primary);font-weight:600;margin-bottom:10px}
 .summary-konsul .btn-cta-green{width:100%;justify-content:center;font-size:.83rem;padding:10px}
 
-/* ── BOTTOM CTA (inside detail) ── */
+/* ── BOTTOM CTA ── */
 .detail-bottom-cta{background:var(--primary);border-radius:10px;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:24px}
 .detail-bottom-cta p{font-size:.88rem;color:rgba(255,255,255,.85);line-height:1.5}
 .detail-bottom-cta strong{display:block;font-size:.98rem;font-weight:700;color:#fff;margin-bottom:4px}
 .btn-cta-green{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:.84rem;font-weight:700;padding:10px 20px;border-radius:5px;text-decoration:none;white-space:nowrap;transition:background .2s}
 .btn-cta-green:hover{background:#1da851}
 .btn-cta-green svg{width:14px;height:14px;fill:currentColor}
-
 
 /* ── CTA SECTION ── */
 #cta-kontak{background:var(--primary)}
@@ -373,10 +370,11 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
 <section class="projects-section" aria-label="Daftar Projects">
   <div class="projects-grid" id="projectsGrid">
 
-    <!-- Card 1: Residential Water Filtration -->
+    <!-- Card 1: Residential -->
     <div class="proj-card" data-category="residential" data-project="0">
-      <div class="proj-card-img-ph">
-        <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/><path d="M12 3v3"/></svg>
+      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#ffffff,#f7f9fb);">
+        <img src="https://i.imgur.com/MAEYpwk.png" alt="Brilian Water Treatment" style="width:250px;height:auto;">
+        <span>Residential</span>
       </div>
       <div class="proj-card-body">
         <span class="proj-card-tag tag-residential">Residential</span>
@@ -392,10 +390,11 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
       </div>
     </div>
 
-    <!-- Card 2: Reverse Osmosis -->
+    <!-- Card 2: RO -->
     <div class="proj-card" data-category="ro" data-project="1">
-      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#f3e8ff,#ddd6fe)">
-        <svg viewBox="0 0 24 24" style="stroke:#7c3aed"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#ffffff,#f7f9fb);">
+        <img src="https://i.imgur.com/MAEYpwk.png" alt="Brilian Water Treatment" style="width:250px;height:auto;">
+        <span style="color:#7c3aed">RO System</span>
       </div>
       <div class="proj-card-body">
         <span class="proj-card-tag tag-ro">RO System</span>
@@ -413,8 +412,9 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
 
     <!-- Card 3: Industrial -->
     <div class="proj-card" data-category="industrial" data-project="2">
-      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#f0f7ee,#c8e6c2)">
-        <svg viewBox="0 0 24 24" style="stroke:#3a7d44"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#ffffff,#f5f7fa);">
+        <img src="https://i.imgur.com/MAEYpwk.png" alt="Brilian Water Treatment" style="width:250px;height:auto;">
+        <span style="color:#3a7d44">Industrial</span>
       </div>
       <div class="proj-card-body">
         <span class="proj-card-tag tag-industrial">Industrial</span>
@@ -432,8 +432,9 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
 
     <!-- Card 4: Office -->
     <div class="proj-card" data-category="commercial" data-project="3">
-      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#fef3e2,#fde0a0)">
-        <svg viewBox="0 0 24 24" style="stroke:#c47a1a"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#ffffff,#f5f7fa);">
+        <img src="https://i.imgur.com/MAEYpwk.png" alt="Brilian Water Treatment" style="width:250px;height:auto;">
+        <span style="color:#c47a1a">Commercial</span>
       </div>
       <div class="proj-card-body">
         <span class="proj-card-tag tag-commercial">Commercial</span>
@@ -449,10 +450,11 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
       </div>
     </div>
 
-    <!-- Card 5: Cafe/Retail -->
+    <!-- Card 5: Cafe -->
     <div class="proj-card" data-category="commercial" data-project="4">
-      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#fff7ed,#fde0b0)">
-        <svg viewBox="0 0 24 24" style="stroke:#c47a1a"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      <div class="proj-card-img-ph" style="background:linear-gradient(135deg,#ffffff,#f5f7fa);">
+        <img src="https://i.imgur.com/MAEYpwk.png" alt="Brilian Water Treatment" style="width:250px;height:auto;">
+        <span style="color:#c47a1a">Commercial</span>
       </div>
       <div class="proj-card-body">
         <span class="proj-card-tag tag-commercial">Commercial</span>
@@ -470,7 +472,6 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
 
   </div><!-- /grid -->
 
-  <!-- Pagination placeholder (for future use) -->
   <div class="pagination" id="pagination" style="display:none">
     <button class="pg-btn"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
     <button class="pg-btn active">1</button>
@@ -492,12 +493,10 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
   </div>
 </div>
 
-<!-- ═══════════════════ DETAIL OVERLAY ═══════════════════ -->
+<!-- DETAIL OVERLAY -->
 <div class="detail-overlay" id="detailOverlay" role="dialog" aria-modal="true">
   <div class="detail-wrapper">
-    <div class="detail-panel" id="detailPanel">
-      <!-- dynamic content injected by JS -->
-    </div>
+    <div class="detail-panel" id="detailPanel"></div>
   </div>
 </div>
 
@@ -534,7 +533,7 @@ footer{background:#111d2b;color:rgba(255,255,255,.75)}
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ══ PROJECT DATA ══ */
 const WA = 'https://wa.me/628138006547';
 const projects = [
@@ -629,7 +628,7 @@ const projects = [
     targetOutput: 'Improved drinking water quality, reduced microbial content, stable supply for building occupants',
     scopeOfWork: 'System planning and design, equipment installation, water purification setup, operational testing',
     overview: 'Sistem pengolahan air minum yang dirancang untuk menyediakan suplai air minum bagi pengguna fasilitas perkantoran. Sistem ini membantu meningkatkan kualitas air melalui beberapa tahap filtrasi.',
-    challenge: 'Gedung perkantoran membutuhkan sistem pengolahan air minum yang mampu menyediakan suplai air yang lebih terkontrol kualitasnya. Kualitas air sumber yang bervariasi dapat mempengaruhi kejernihan serta kualitas air konsumsi.',
+    challenge: 'Gedung perkantoran membutuhkan sistem pengolahan air minum yang mampu menyediakan suplai air yang lebih terkontrol kualitasnya.',
     solution: 'Sistem dirancang menggunakan kombinasi filtrasi karbon aktif, teknologi Reverse Osmosis, serta UV sterilization sebagai tahap tambahan untuk membantu menjaga kualitas air.',
     result: 'Sistem pengolahan air membantu menyediakan suplai air minum dengan kualitas yang lebih stabil bagi pengguna gedung perkantoran.',
     flow: [
@@ -655,10 +654,10 @@ const projects = [
     feedWater: 'Municipal water supply / groundwater',
     targetOutput: 'Improved water taste and clarity, reduced odor and chlorine, consistent beverage preparation quality',
     scopeOfWork: 'Water quality evaluation, filtration system design, equipment installation, system setup and testing',
-    overview: 'Sistem filtrasi air yang dirancang untuk meningkatkan kualitas air yang digunakan dalam operasional café atau retail outlet, terutama untuk kebutuhan pembuatan minuman dan penggunaan peralatan minuman seperti mesin kopi.',
-    challenge: 'Kualitas air yang digunakan dalam operasional café atau retail outlet dapat mempengaruhi rasa minuman serta performa mesin kopi. Kandungan partikel, bau, atau klorin dapat mempengaruhi hasil akhir minuman.',
+    overview: 'Sistem filtrasi air yang dirancang untuk meningkatkan kualitas air yang digunakan dalam operasional café atau retail outlet, terutama untuk kebutuhan pembuatan minuman.',
+    challenge: 'Kualitas air yang digunakan dalam operasional café dapat mempengaruhi rasa minuman serta performa mesin kopi.',
     solution: 'Sistem filtrasi multi-stage dirancang menggunakan beberapa tahap penyaringan untuk membantu mengurangi partikel, bau, dan kandungan tertentu dalam air sebelum digunakan untuk pembuatan minuman.',
-    result: 'Air yang telah melalui proses filtrasi membantu menghasilkan kualitas air yang lebih stabil untuk kebutuhan operasional café serta mendukung penggunaan peralatan minuman.',
+    result: 'Air yang telah melalui proses filtrasi membantu menghasilkan kualitas air yang lebih stabil untuk kebutuhan operasional café.',
     flow: [
       {label:'Raw Water',color:'pf-light'},
       {label:'Sediment Filter',color:'pf-accent'},
@@ -705,11 +704,11 @@ function openDetail(idx){
       </button>
     </nav>
 
-    <!-- TOP: Image + Project Summary -->
     <div class="detail-top">
       <div class="detail-img-wrap">
         <div class="detail-img-ph">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          <img src="https://imgur.com/MAEYpwk.png" alt="Brilian Water Treatment" style="width:500px;height:auto;">
+          <span>${p.tag}</span>
         </div>
       </div>
       <div class="detail-summary">
@@ -724,21 +723,18 @@ function openDetail(idx){
       </div>
     </div>
 
-    <!-- BODY -->
     <div class="detail-body">
       <span class="detail-tag ${p.tagClass}">${p.tag}</span>
       <h2 class="detail-title">${p.title}</h2>
       <div class="detail-capacity"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Kapasitas: ${p.capacity}</div>
       <p class="detail-overview">${p.overview}</p>
 
-      <!-- Challenge / Solution / Result -->
       <div class="csr-grid">
         <div class="csr-card challenge"><div class="csr-icon">🔍</div><div class="csr-label">Challenge</div><p class="csr-text">${p.challenge}</p></div>
         <div class="csr-card solution"><div class="csr-icon">⚙️</div><div class="csr-label">Solution</div><p class="csr-text">${p.solution}</p></div>
         <div class="csr-card result"><div class="csr-icon">✅</div><div class="csr-label">Result</div><p class="csr-text">${p.result}</p></div>
       </div>
 
-      <!-- Process Flow + FAQ side by side -->
       <div class="detail-bottom-grid">
         <div class="process-section">
           <div class="process-title">Process Flow</div>
@@ -751,7 +747,6 @@ function openDetail(idx){
       </div>
     </div>
 
-    <!-- Konsul strip -->
     <div class="detail-konsul-strip">
       <p><strong>Butuh sistem serupa untuk proyek Anda?</strong> Diskusikan dengan tim engineer kami.</p>
       <a href="${WA}" target="_blank" class="btn-cta-green">${waIcon} Konsultasi Gratis dengan Engineer</a>
@@ -797,8 +792,4 @@ document.getElementById('mobProdToggle').addEventListener('click',e=>{
 });
 </script>
 </body>
-
 </html>
-
-
-
