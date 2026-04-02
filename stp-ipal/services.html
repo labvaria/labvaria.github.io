@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Layanan STP/IPAL — Brilian Water Treatment</title>
+  <link rel="icon" type="image/png" href="https://imgur.com/MAEYpwk.png"/>
+  <meta name="description" content="Layanan instalasi STP/IPAL untuk kebutuhan domestik, komersial, industri, dan komunal. Dirancang sesuai standar baku mutu lingkungan Indonesia."/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green-primary:#4CAF82;--green-light:#7DDBA8;--green-pale:#E8F7F0;
+  --green-deep:#2E7D57;--teal:#2A9D8F;--teal-light:#E0F4F2;
+  --navy:#1A3A5C;--navy-deep:#0F2539;
+  --white:#FFFFFF;--off-white:#F8FDFB;
+  --gray-50:#F5F7F6;--gray-100:#E8EDEA;--gray-400:#9BAD9F;
+  --gray-600:#5A6B60;--text:#1E2D25;--border:#dde3ea;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+
+/* ── NAVBAR ── */
+nav{background:rgba(255,255,255,.97);border-bottom:1px solid var(--gray-100);position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:40px;width:auto;object-fit:contain;display:block}
+.nav-tagline{font-size:.72rem;color:var(--gray-400);letter-spacing:.08em;font-style:italic;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:4px}
+.nav-menu{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-menu>li>a{display:flex;align-items:center;gap:4px;text-decoration:none;color:var(--gray-600);font-size:.86rem;font-weight:600;padding:6px 13px;border-radius:8px;transition:background .2s,color .2s;white-space:nowrap}
+.nav-menu>li>a:hover,.nav-menu>li>a.active{background:var(--green-pale);color:var(--green-deep)}
+.nav-menu>li>a.active{font-weight:700}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--green-primary);color:var(--white);font-size:.84rem;font-weight:700;padding:8px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;margin-left:10px;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--green-deep);transform:translateY(-1px)}
+.nav-cta svg{width:15px;height:15px;fill:currentColor}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--border);padding:12px 24px 20px}
+.mobile-menu.open{display:block}
+.mobile-menu ul{list-style:none}
+.mobile-menu ul li{border-bottom:1px solid var(--border)}
+.mobile-menu ul li>a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;text-decoration:none;color:var(--text);font-size:.9rem;font-weight:500}
+.mob-cta{display:block;margin-top:14px;background:var(--green-primary);color:var(--white);text-align:center;padding:11px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
+
+/* ── HERO ── */
+.hero{margin-top:64px;position:relative;height:400px;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to right,rgba(10,28,20,.88) 45%,rgba(10,28,20,.45) 100%),
+    url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600&q=80') center/cover no-repeat;
+}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 75% 50%,rgba(76,175,130,.12) 0%,transparent 65%)}
+.hero-content{position:relative;z-index:2;height:100%;max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column;justify-content:center}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;animation:fadeUp .5s ease both}
+.breadcrumb a{font-size:.8rem;color:rgba(255,255,255,.55);text-decoration:none;font-weight:500;transition:color .2s}
+.breadcrumb a:hover{color:var(--green-light)}
+.breadcrumb-sep{color:rgba(255,255,255,.3);font-size:.8rem}
+.breadcrumb-cur{font-size:.8rem;color:var(--green-light);font-weight:600}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(76,175,130,.25);border:1px solid rgba(76,175,130,.5);color:var(--green-light);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:16px;width:fit-content;animation:fadeUp .5s .05s ease both}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green-light)}
+.hero h1{font-family:'DM Serif Display',serif;font-size:44px;line-height:1.15;color:white;margin-bottom:14px;animation:fadeUp .5s .1s ease both}
+.hero h1 em{font-style:italic;color:var(--green-light)}
+.hero-desc{font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.72);max-width:560px;animation:fadeUp .5s .15s ease both}
+
+/* ── SECTION ── */
+.sw{max-width:1200px;margin:0 auto;padding:72px 24px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-primary);margin-bottom:12px}
+.section-label::before{content:'';width:20px;height:2px;background:var(--green-primary);border-radius:2px}
+.section-title{font-family:'DM Serif Display',serif;font-size:34px;line-height:1.2;color:var(--navy);margin-bottom:14px}
+.section-sub{font-size:.94rem;color:var(--gray-600);line-height:1.7;max-width:600px}
+
+/* ── INTRO ── */
+#intro{background:var(--off-white)}
+.intro-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+.intro-text p{font-size:.94rem;line-height:1.85;color:var(--gray-600);margin-bottom:14px}
+.intro-pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.pillar{background:white;border:1px solid var(--gray-100);border-radius:12px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:transform .2s,box-shadow .2s}
+.pillar:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(76,175,130,.1)}
+.pillar-icon{width:36px;height:36px;background:var(--green-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pillar-icon svg{width:18px;height:18px;stroke:var(--green-deep);fill:none;stroke-width:2}
+.pillar-text h4{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.pillar-text p{font-size:.78rem;color:var(--gray-600);line-height:1.5;margin:0}
+.intro-visual{position:relative}
+.intro-img-wrap{border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.intro-img-wrap img{width:100%;height:320px;object-fit:cover;display:block}
+.intro-badge-float{position:absolute;bottom:-18px;left:-18px;background:white;border-radius:14px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.12);border:1px solid var(--gray-100);display:flex;align-items:center;gap:12px}
+.intro-badge-float .ibf-num{font-family:'DM Serif Display',serif;font-size:28px;color:var(--green-deep);line-height:1}
+.intro-badge-float .ibf-txt{font-size:.78rem;color:var(--gray-600);line-height:1.4}
+.intro-badge-float .ibf-txt strong{display:block;color:var(--navy);font-size:.84rem}
+
+/* ── TAB LAYANAN ── */
+#layanan{background:white}
+.tab-nav{display:flex;gap:8px;margin-bottom:40px;background:var(--gray-50);padding:6px;border-radius:14px;width:fit-content}
+.tab-btn{padding:10px 24px;border-radius:10px;font-size:.86rem;font-weight:700;border:none;cursor:pointer;background:transparent;color:var(--gray-600);transition:all .25s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.tab-btn.active{background:white;color:var(--green-deep);box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.tab-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.tab-pane{display:none;animation:fadeIn .35s ease}
+.tab-pane.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.service-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.service-card-img{border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.1)}
+.service-card-img img{width:100%;height:300px;object-fit:cover;display:block}
+.service-card-body{}
+.service-tag{display:inline-block;background:var(--green-pale);color:var(--green-deep);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.service-card-body h3{font-family:'DM Serif Display',serif;font-size:26px;color:var(--navy);margin-bottom:10px;line-height:1.25}
+.service-card-body p{font-size:.9rem;line-height:1.8;color:var(--gray-600);margin-bottom:20px}
+.service-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.service-features li{display:flex;align-items:flex-start;gap:10px;font-size:.87rem;color:var(--text)}
+.service-features li::before{content:'';width:18px;height:18px;background:var(--green-pale);border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;background-image:url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%232E7D57' stroke-width='3' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:10px}
+.service-targets{display:flex;flex-wrap:wrap;gap:8px}
+.target-chip{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:20px;padding:5px 12px;font-size:.78rem;font-weight:600;color:var(--gray-600)}
+
+/* ── FLOW OF PROCESS ── */
+#flow{background:var(--off-white)}
+.flow-header{text-align:center;margin-bottom:56px}
+.flow-header .section-label{justify-content:center}
+.flow-header .section-sub{margin:0 auto;text-align:center}
+.flow-diagram{position:relative;overflow-x:auto;padding-bottom:12px}
+.flow-track{display:flex;align-items:flex-start;gap:0;min-width:700px;position:relative}
+.flow-track::before{content:'';position:absolute;top:40px;left:40px;right:40px;height:2px;background:linear-gradient(to right,var(--green-primary),var(--teal));z-index:0}
+.flow-node{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;z-index:1}
+.flow-circle{width:80px;height:80px;border-radius:50%;background:white;border:2.5px solid var(--green-primary);display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 4px 20px rgba(76,175,130,.18);transition:all .3s;cursor:default}
+.flow-circle:hover{background:var(--green-primary);border-color:var(--green-primary)}
+.flow-circle:hover svg{stroke:white}
+.flow-circle svg{width:30px;height:30px;stroke:var(--green-primary);fill:none;stroke-width:1.8;transition:stroke .3s}
+.flow-node-label{font-size:.78rem;font-weight:700;color:var(--navy);text-align:center;line-height:1.4;max-width:90px}
+.flow-node-sub{font-size:.7rem;color:var(--gray-400);text-align:center;margin-top:4px;max-width:90px;line-height:1.4}
+.flow-arrow{display:flex;align-items:center;padding-top:24px;color:var(--green-primary);font-size:18px;flex-shrink:0;z-index:1}
+.flow-arrow svg{width:20px;height:20px;stroke:var(--green-primary);fill:none;stroke-width:2}
+.flow-legend{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.flow-legend-item{background:white;border:1px solid var(--gray-100);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.flow-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.flow-legend-dot.green{background:var(--green-primary)}
+.flow-legend-dot.teal{background:var(--teal)}
+.flow-legend-dot.navy{background:var(--navy)}
+.flow-legend-text{font-size:.8rem;color:var(--gray-600);line-height:1.5}
+.flow-legend-text strong{display:block;font-size:.84rem;color:var(--navy);margin-bottom:2px}
+
+/* ── SPESIFIKASI ── */
+#spesifikasi{background:white}
+.spec-section-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+.spec-block{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:16px;overflow:hidden}
+.spec-block-header{padding:16px 22px;display:flex;align-items:center;gap:10px}
+.spec-block-header.green{background:linear-gradient(135deg,var(--green-primary),var(--green-deep))}
+.spec-block-header.teal{background:linear-gradient(135deg,var(--teal),var(--navy))}
+.spec-block-header h3{font-size:.95rem;font-weight:700;color:white}
+.spec-block-header svg{width:18px;height:18px;stroke:rgba(255,255,255,.8);fill:none;stroke-width:2;flex-shrink:0}
+table{width:100%;border-collapse:collapse}
+th{background:var(--gray-50);padding:10px 16px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-600);text-align:left;border-bottom:1px solid var(--gray-100)}
+td{padding:11px 16px;font-size:.84rem;color:var(--text);border-bottom:1px solid var(--gray-100)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--green-pale)}
+td:first-child{font-weight:600;color:var(--navy)}
+.badge-tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.73rem;font-weight:600}
+.badge-green{background:var(--green-pale);color:var(--green-deep)}
+.badge-teal{background:var(--teal-light);color:var(--teal)}
+.badge-navy{background:#EEF2F8;color:var(--navy)}
+.badge-amber{background:#FFF8E7;color:#B45309}
+
+/* ── CTA ── */
+#cta-kontak{background:var(--off-white)}
+.cta-inner{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);border-radius:24px;padding:56px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
+.cta-inner::before{content:'';position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(76,175,130,.08)}
+.cta-inner::after{content:'';position:absolute;left:50%;bottom:-100px;width:240px;height:240px;border-radius:50%;background:rgba(42,157,143,.07)}
+.cta-text{position:relative;z-index:1}
+.cta-text .section-label{color:var(--green-light)}
+.cta-text .section-label::before{background:var(--green-light)}
+.cta-text h2{font-family:'DM Serif Display',serif;font-size:30px;color:white;margin-bottom:10px;line-height:1.25}
+.cta-text p{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.7;max-width:420px}
+.cta-actions{display:flex;flex-direction:column;gap:12px;flex-shrink:0;position:relative;z-index:1}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:.88rem;padding:14px 26px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:all .2s}
+.btn-wa:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.3)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+.btn-wa-inner{display:flex;flex-direction:column}
+.btn-wa-sub{font-size:.7rem;font-weight:400;opacity:.85}
+.btn-wa-num{font-size:.9rem;font-weight:700}
+.btn-secondary{background:rgba(255,255,255,.1);color:white;padding:14px 26px;border-radius:10px;font-weight:700;font-size:.88rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;gap:8px;justify-content:center;transition:all .2s}
+.btn-secondary:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5)}
+.btn-secondary svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ── FOOTER ── */
+footer{background:#111d2b;color:rgba(255,255,255,.75)}
+.footer-main{max-width:1200px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.4fr 1px 1fr 1px 1fr;gap:40px;align-items:start}
+.footer-vdiv{background:rgba(255,255,255,.1);height:100%;min-height:120px}
+.fcol-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-light);margin-bottom:16px}
+.fcol-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.6)}
+.f-address{font-style:normal;font-size:.83rem;line-height:1.9;color:rgba(255,255,255,.65)}
+.f-contacts{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.f-link{font-size:.83rem;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s}
+.f-link:hover{color:var(--green-light)}
+.f-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.footer-col-nav h4{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-light);margin-bottom:16px}
+.footer-col-nav ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col-nav ul a{font-size:.83rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.footer-col-nav ul a:hover{color:var(--green-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08)}
+.footer-bottom-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.f-copy{font-size:.75rem;color:rgba(255,255,255,.4)}
+
+/* ── ANIMATION ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── DIVIDER ── */
+.section-divider{border:none;border-top:1px solid var(--border);max-width:1200px;margin:0 auto}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-menu,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero h1{font-size:32px}
+  .hero{height:340px}
+  .intro-grid{grid-template-columns:1fr;gap:36px}
+  .intro-badge-float{display:none}
+  .service-card-grid{grid-template-columns:1fr}
+  .flow-legend{grid-template-columns:1fr 1fr}
+  .spec-section-grid{grid-template-columns:1fr}
+  .cta-inner{flex-direction:column;padding:40px 28px}
+  .footer-main{grid-template-columns:1fr;gap:28px}
+  .footer-vdiv{display:none}
+  .tab-nav{flex-wrap:wrap}
+}
+@media(max-width:600px){
+  .sw{padding:48px 20px}
+  .section-title{font-size:27px}
+  .flow-legend{grid-template-columns:1fr}
+  .intro-pillars{grid-template-columns:1fr}
+  .footer-bottom-inner{flex-direction:column;text-align:center}
+}
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="https://imgur.com/MAEYpwk.png" alt="Brilian Water Treatment" loading="eager"/>
+      <div><span class="nav-tagline">Engineering ▪ Environment ▪ Innovation</span></div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="article.html">Article</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/628138006547" target="_blank" rel="noopener noreferrer" class="nav-cta">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Konsultasi Gratis
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" style="color:var(--green-deep);font-weight:700">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="article.html">Article</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/628138006547" target="_blank" class="mob-cta">Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-cur">Services</span>
+    </div>
+    <div class="hero-badge">Layanan Kami</div>
+    <h1>Instalasi <em>STP & IPAL</em><br>dari Skala Kecil hingga Industri</h1>
+    <p class="hero-desc">Solusi pengolahan air limbah yang dirancang presisi — dari hunian, fasilitas komersial, hingga kawasan industri berskala besar.</p>
+  </div>
+</section>
+
+<!-- ══ INTRO ══ -->
+<section id="intro">
+  <div class="sw">
+    <div class="intro-grid">
+      <div class="intro-text reveal">
+        <div class="section-label">Tentang Layanan</div>
+        <h2 class="section-title">Pengolahan Air Limbah yang Tepat Sasaran</h2>
+        <p>Brilian Water Treatment menghadirkan layanan instalasi STP dan IPAL berbasis analisis teknis yang mendalam. Setiap sistem kami rancang spesifik sesuai karakteristik limbah, kapasitas debit, dan regulasi lingkungan yang berlaku.</p>
+        <p>Dengan pendekatan EPC (Engineering, Procurement, Construction) yang terintegrasi, kami memastikan proses dari desain hingga serah terima berjalan terstruktur dan transparan.</p>
+        <div class="intro-pillars">
+          <div class="pillar">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+            <div class="pillar-text"><h4>Berstandar Regulasi</h4><p>Memenuhi Permen LHK & baku mutu nasional</p></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div class="pillar-text"><h4>Desain Berbasis Data</h4><p>Analisis limbah sebelum perancangan sistem</p></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+            <div class="pillar-text"><h4>Instalasi Cepat</h4><p>EPC terintegrasi, minim gangguan operasional</p></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+            <div class="pillar-text"><h4>Purna Jual & O&M</h4><p>Garansi sistem + layanan operasi & maintenance</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="intro-visual reveal">
+        <div class="intro-img-wrap">
+          <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80" alt="Instalasi STP/IPAL"/>
+        </div>
+        <div class="intro-badge-float">
+          <div class="ibf-num">50+</div>
+          <div class="ibf-txt"><strong>Proyek Terselesaikan</strong>di seluruh Indonesia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ══ JENIS LAYANAN / TAB ══ -->
+<section id="layanan">
+  <div class="sw">
+    <div class="reveal" style="margin-bottom:36px">
+      <div class="section-label">Jenis Layanan</div>
+      <h2 class="section-title">Pilih Sesuai Kebutuhan Anda</h2>
+      <p class="section-sub">Empat kategori layanan yang mencakup berbagai skala dan segmen — masing-masing dengan spesifikasi teknis yang disesuaikan.</p>
+    </div>
+
+    <div class="tab-nav reveal">
+      <button class="tab-btn active" data-tab="domestik">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        STP Domestik
+      </button>
+      <button class="tab-btn" data-tab="komersial">
+        <svg viewBox="0 0 24 24"><path d="M3 21h18M3 7v1a3 3 0 006 0V7m0 1a3 3 0 006 0V7m0 1a3 3 0 006 0V7H3l2-4h14l2 4M5 21V10.85"/></svg>
+        STP Komersial
+      </button>
+      <button class="tab-btn" data-tab="industri">
+        <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l4-4m0 0V4h4v2m0 0l4 4m0 0v10M8 6v4m4-4v4m4-4v4M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+        IPAL Industri
+      </button>
+      <button class="tab-btn" data-tab="komunal">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        IPAL Komunal
+      </button>
+    </div>
+
+    <!-- TAB: DOMESTIK -->
+    <div class="tab-pane active" id="tab-domestik">
+      <div class="service-card-grid reveal">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="STP Domestik"/>
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">STP Domestik</span>
+          <h3>Pengolahan Air Limbah Rumah Tangga & Fasilitas Kecil</h3>
+          <p>Sistem STP kompak berbahan FRP (Fiberglass Reinforced Plastic) yang dirancang untuk mengolah air limbah dari hunian, klinik, ruko, dan fasilitas kecil lainnya. Mudah dipasang, hemat lahan, dan minim perawatan.</p>
+          <ul class="service-features">
+            <li>Kapasitas 0,5 – 10 m³/hari</li>
+            <li>Proses biologis aerobik dengan biofilm</li>
+            <li>Material tangki FRP anti-korosi, tahan lama</li>
+            <li>Instalasi cepat — umumnya 1–3 hari kerja</li>
+            <li>Tidak memerlukan operator khusus</li>
+            <li>Efluen memenuhi baku mutu domestik</li>
+          </ul>
+          <div class="service-targets">
+            <span class="target-chip">🏠 Rumah Tinggal</span>
+            <span class="target-chip">🏥 Klinik & Puskesmas</span>
+            <span class="target-chip">🏪 Ruko & Kantor Kecil</span>
+            <span class="target-chip">🔬 Laboratorium</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: KOMERSIAL -->
+    <div class="tab-pane" id="tab-komersial">
+      <div class="service-card-grid reveal">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?w=800&q=80" alt="STP Komersial"/>
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">STP Komersial</span>
+          <h3>Pengolahan Air Limbah Hotel, Mal & Fasilitas Umum</h3>
+          <p>Sistem STP skala menengah menggunakan teknologi MBR (Membrane Bioreactor) atau SBR (Sequencing Batch Reactor) yang menghasilkan kualitas efluen tinggi. Cocok untuk fasilitas komersial yang membutuhkan sistem andal dan efisien.</p>
+          <ul class="service-features">
+            <li>Kapasitas 15 – 50 m³/hari</li>
+            <li>Teknologi MBR atau SBR sesuai kebutuhan</li>
+            <li>Removal BOD ≥ 90%, TSS ≥ 90%</li>
+            <li>Sistem kontrol otomatis dengan panel PLC</li>
+            <li>Desain compact, dapat diintegrasikan di basement</li>
+            <li>Garansi sistem 2 tahun</li>
+          </ul>
+          <div class="service-targets">
+            <span class="target-chip">🏨 Hotel & Resort</span>
+            <span class="target-chip">🏬 Mal & Pusat Perbelanjaan</span>
+            <span class="target-chip">🏥 Rumah Sakit</span>
+            <span class="target-chip">🏫 Kampus & Sekolah</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: INDUSTRI -->
+    <div class="tab-pane" id="tab-industri">
+      <div class="service-card-grid reveal">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="IPAL Industri"/>
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">IPAL Industri</span>
+          <h3>Pengolahan Air Limbah Pabrik & Kawasan Industri</h3>
+          <p>IPAL skala besar dengan kombinasi proses anaerobik dan aerobik untuk menangani limbah industri yang kompleks. Dirancang dengan struktur beton bertulang dan stainless steel grade industri untuk ketahanan jangka panjang.</p>
+          <ul class="service-features">
+            <li>Kapasitas 50 – 300+ m³/hari (customizable)</li>
+            <li>Kombinasi proses Anaerobik + Aerobik + Tersier</li>
+            <li>Removal BOD ≥ 95%, TSS ≥ 95%</li>
+            <li>Material SS 316 atau beton bertulang</li>
+            <li>Dilengkapi SCADA & online monitoring</li>
+            <li>Kontrak Operation & Maintenance tersedia</li>
+          </ul>
+          <div class="service-targets">
+            <span class="target-chip">🏭 Pabrik & Manufaktur</span>
+            <span class="target-chip">🧪 Industri Kimia & Farmasi</span>
+            <span class="target-chip">🍖 Industri Pangan</span>
+            <span class="target-chip">🏗️ Kawasan Industri</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: KOMUNAL -->
+    <div class="tab-pane" id="tab-komunal">
+      <div class="service-card-grid reveal">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80" alt="IPAL Komunal"/>
+        </div>
+        <div class="service-card-body">
+          <span class="service-tag">IPAL Komunal</span>
+          <h3>Pengolahan Air Limbah Perumahan & Kawasan Terpadu</h3>
+          <p>Sistem IPAL terpusat yang melayani kumpulan unit hunian atau kawasan dalam satu sistem terintegrasi. Solusi cost-effective untuk perumahan, apartemen, atau kawasan yang belum terlayani jaringan IPAL publik.</p>
+          <ul class="service-features">
+            <li>Kapasitas 10 – 100+ m³/hari</li>
+            <li>Sistem perpipaan komunal terintegrasi</li>
+            <li>Proses biologis anaerob + aerob</li>
+            <li>Biaya operasional dibagi antar pengguna</li>
+            <li>Cocok untuk program CSR & hibah pemerintah</li>
+            <li>Laporan kualitas efluen berkala</li>
+          </ul>
+          <div class="service-targets">
+            <span class="target-chip">🏘️ Perumahan</span>
+            <span class="target-chip">🏢 Apartemen</span>
+            <span class="target-chip">🏙️ Kawasan Terpadu</span>
+            <span class="target-chip">🏛️ Program Pemerintah</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ══ FLOW OF PROCESS ══ -->
+<section id="flow">
+  <div class="sw">
+    <div class="flow-header reveal">
+      <div class="section-label">Alur Pengolahan</div>
+      <h2 class="section-title">Flow of Process STP/IPAL</h2>
+      <p class="section-sub">Diagram berikut menggambarkan alur umum pengolahan air limbah dari inlet hingga efluen yang memenuhi standar baku mutu.</p>
+    </div>
+
+    <div class="flow-diagram reveal">
+      <div class="flow-track">
+
+        <div class="flow-node">
+          <div class="flow-circle">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          </div>
+          <div class="flow-node-label">Inlet / Screening</div>
+          <div class="flow-node-sub">Penyaringan partikel kasar</div>
+        </div>
+
+        <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+
+        <div class="flow-node">
+          <div class="flow-circle">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="flow-node-label">Bak Ekualisasi</div>
+          <div class="flow-node-sub">Pemerataan debit & konsentrasi</div>
+        </div>
+
+        <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+
+        <div class="flow-node">
+          <div class="flow-circle">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="flow-node-label">Reaktor Biologis</div>
+          <div class="flow-node-sub">Anaerob / Aerob / Biofilm</div>
+        </div>
+
+        <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+
+        <div class="flow-node">
+          <div class="flow-circle">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4m-6-3a6 6 0 100 12 6 6 0 000-12"/></svg>
+          </div>
+          <div class="flow-node-label">Klarifikasi</div>
+          <div class="flow-node-sub">Sedimentasi & pemisahan lumpur</div>
+        </div>
+
+        <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+
+        <div class="flow-node">
+          <div class="flow-circle">
+            <svg viewBox="0 0 24 24"><path d="M4.93 4.93l4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+          </div>
+          <div class="flow-node-label">Filtrasi & Disinfeksi</div>
+          <div class="flow-node-sub">Sand filter + klorinasi / UV</div>
+        </div>
+
+        <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+
+        <div class="flow-node">
+          <div class="flow-circle" style="background:var(--green-pale);border-color:var(--teal)">
+            <svg viewBox="0 0 24 24" style="stroke:var(--teal)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="flow-node-label">Efluen / Outlet</div>
+          <div class="flow-node-sub">Air bersih sesuai baku mutu</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flow-legend reveal">
+      <div class="flow-legend-item">
+        <div class="flow-legend-dot green"></div>
+        <div class="flow-legend-text"><strong>Pre-Treatment</strong>Screening, ekualisasi, pengaturan pH awal</div>
+      </div>
+      <div class="flow-legend-item">
+        <div class="flow-legend-dot navy"></div>
+        <div class="flow-legend-text"><strong>Secondary Treatment</strong>Proses biologis utama — lumpur aktif, biofilm, MBR</div>
+      </div>
+      <div class="flow-legend-item">
+        <div class="flow-legend-dot teal"></div>
+        <div class="flow-legend-text"><strong>Tertiary Treatment</strong>Filtrasi lanjutan & desinfeksi untuk output akhir</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- ══ SPESIFIKASI & DIMENSI ══ -->
+<section id="spesifikasi">
+  <div class="sw">
+    <div class="reveal">
+      <div class="section-label">Data Teknis</div>
+      <h2 class="section-title">Spesifikasi & Dimensi Sistem</h2>
+      <p class="section-sub">Referensi teknis untuk membantu Anda menentukan tipe sistem yang sesuai. Dimensi aktual dapat disesuaikan berdasarkan kebutuhan lapangan.</p>
+    </div>
+
+    <div class="spec-section-grid reveal">
+      <!-- Tabel Perbandingan Spesifikasi -->
+      <div class="spec-block">
+        <div class="spec-block-header green">
+          <svg viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 017 7h2M15 7h2a5 5 0 010 10h-2M8 12h8"/></svg>
+          <h3>Perbandingan Spesifikasi Teknis</h3>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Domestik</th><th>Komersial</th><th>Industri</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Kapasitas</td><td>0,5–10 m³/hr</td><td>15–50 m³/hr</td><td>50–300+ m³/hr</td></tr>
+            <tr><td>Teknologi</td>
+              <td><span class="badge-tag badge-green">Biofilm</span></td>
+              <td><span class="badge-tag badge-teal">MBR/SBR</span></td>
+              <td><span class="badge-tag badge-navy">Anaerobik+Aerob</span></td>
+            </tr>
+            <tr><td>Removal BOD</td><td>≥ 85%</td><td>≥ 90%</td><td>≥ 95%</td></tr>
+            <tr><td>Removal TSS</td><td>≥ 80%</td><td>≥ 90%</td><td>≥ 95%</td></tr>
+            <tr><td>Material</td><td>FRP</td><td>FRP / SS 304</td><td>Beton / SS 316</td></tr>
+            <tr><td>Garansi</td><td>1 tahun</td><td>2 tahun</td><td>2 tahun + O&M</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tabel Dimensi Tangki -->
+      <div class="spec-block">
+        <div class="spec-block-header teal">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <h3>Referensi Dimensi Tangki FRP</h3>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Tipe</th><th>Kapasitas</th><th>Dimensi (D × L)</th><th>Peruntukan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>BK-05</td><td>0,5 m³/hr</td><td>Ø0,9 × 1,8 m</td><td><span class="badge-tag badge-green">Rumah / Klinik</span></td></tr>
+            <tr><td>BK-2</td><td>2 m³/hr</td><td>Ø1,2 × 2,4 m</td><td><span class="badge-tag badge-green">Ruko / Kantor</span></td></tr>
+            <tr><td>BK-5</td><td>5 m³/hr</td><td>Ø1,6 × 3,2 m</td><td><span class="badge-tag badge-green">Puskesmas</span></td></tr>
+            <tr><td>BK-15</td><td>15 m³/hr</td><td>Ø2,0 × 4,0 m</td><td><span class="badge-tag badge-teal">Hotel Kecil</span></td></tr>
+            <tr><td>BK-30</td><td>30 m³/hr</td><td>Ø2,4 × 5,5 m</td><td><span class="badge-tag badge-teal">RS / Hotel</span></td></tr>
+            <tr><td>BK-50</td><td>50 m³/hr</td><td>Ø2,8 × 6,5 m</td><td><span class="badge-tag badge-navy">Industri Ringan</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:20px;padding:16px 20px;background:var(--green-pale);border-radius:12px;border-left:3px solid var(--green-primary)">
+      <p style="font-size:.85rem;color:var(--green-deep);font-weight:600">💡 Catatan: Kapasitas di atas &gt; 50 m³/hari umumnya menggunakan konstruksi beton di lokasi (site-built). Hubungi tim kami untuk desain dan kalkulasi teknis yang lebih spesifik sesuai kondisi lapangan Anda.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta-kontak" style="background:var(--off-white);padding:72px 24px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="cta-inner reveal">
+      <div class="cta-text">
+        <div class="section-label">Mulai Sekarang</div>
+        <h2>Butuh Sistem STP/IPAL<br>untuk Fasilitas Anda?</h2>
+        <p>Tim engineer kami siap membantu dari tahap konsultasi awal, analisis kebutuhan, hingga desain sistem yang tepat — tanpa biaya, tanpa komitmen.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://wa.me/628138006547" target="_blank" rel="noopener noreferrer" class="btn-wa">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          <div class="btn-wa-inner">
+            <span class="btn-wa-sub">Chat langsung via WhatsApp</span>
+            <span class="btn-wa-num">+62 813 800 6547</span>
+          </div>
+        </a>
+        <a href="mailto:brilianproject.in@gmail.com" class="btn-secondary">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Kirim Email
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <p class="fcol-label">Brilian Water Treatment</p>
+      <p class="fcol-desc">Perusahaan engineering dan solusi teknologi yang berkomitmen pada kualitas teknis tinggi dan perlindungan kondisi air di Indonesia.</p>
+    </div>
+    <div class="footer-vdiv"></div>
+    <div>
+      <p class="fcol-label">Kantor</p>
+      <address class="f-address">Jl. Cilintan Besar Nomor 722D,<br>Kel. Kramat Jati, Kec. Kramat Jati,<br>Kota Jakarta Timur, DKI Jakarta 13510</address>
+      <div class="f-contacts">
+        <a href="tel:+628138006547" class="f-link">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          +62 813 800 6547
+        </a>
+        <a href="mailto:brilianproject.in@gmail.com" class="f-link">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          brilianproject.in@gmail.com
+        </a>
+      </div>
+    </div>
+    <div class="footer-vdiv"></div>
+    <div>
+      <p class="fcol-label">Workshop</p>
+      <address class="f-address">Jl. Wibawa Mukti II,<br>Kel. Jatisari, Kec. Jatiasih,<br>Kota Bekasi, Jawa Barat 17426</address>
+      <div class="f-contacts">
+        <a href="tel:+6285771578963" class="f-link">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          +62 857 7157 8963
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="f-copy">© 2026 Brilian Water Treatment. Seluruh hak dilindungi.</p>
+      <p class="f-copy" style="letter-spacing:.06em">Engineering • Environment • Innovation</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── TAB SWITCHER ── */
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanes = document.querySelectorAll('.tab-pane');
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabPanes.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if(e.isIntersecting){
+        setTimeout(() => e.target.classList.add('visible'), e.target.dataset.delay || 0);
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: .1});
+  els.forEach((el, i) => { el.dataset.delay = (i % 4) * 80; obs.observe(el); });
+})();
+
+/* ── MOBILE NAV ── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+</script>
+</body>
+</html>
