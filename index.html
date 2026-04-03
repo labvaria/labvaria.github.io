@@ -141,8 +141,21 @@
     .cta-wrap{max-width:1200px;margin:0 auto;padding:80px 24px;text-align:center}
     .cta-label{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
     .cta-title{font-size:2rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:32px}
-    .cta-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--primary);font-weight:700;font-size:.95rem;padding:14px 32px;border-radius:6px;text-decoration:none;transition:background .2s,color .2s;letter-spacing:.01em}
-    .cta-btn:hover{background:#25D366;color:#fff}
+
+    /* CTA Buttons Group */
+    .cta-buttons{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+
+    .cta-btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;padding:14px 32px;border-radius:6px;text-decoration:none;transition:background .2s,color .2s,transform .15s;letter-spacing:.01em;flex-shrink:0}
+    .cta-btn:hover{transform:translateY(-2px)}
+
+    /* Hubungi Tim Kami — putih, hover WA green */
+    .cta-btn-wa{background:#fff;color:var(--primary)}
+    .cta-btn-wa:hover{background:#25D366;color:#fff}
+
+    /* Portofolio Kami — outlined / subtle teal, selaras tone biru-teal */
+    .cta-btn-portfolio{background:rgba(46,125,159,.18);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+    .cta-btn-portfolio:hover{background:rgba(46,125,159,.38);border-color:rgba(255,255,255,.6)}
+
     .cta-btn svg{flex-shrink:0}
 
     /* ── FOOTER ── */
@@ -172,6 +185,7 @@
       .keahlian-grid{grid-template-columns:repeat(2,1fr);gap:16px}
       .keunggulan-grid{grid-template-columns:repeat(2,1fr);gap:16px}
       .cta-title{font-size:1.6rem}
+      .cta-buttons{gap:12px}
       .footer-main{
         grid-template-columns:1fr;
         gap:32px;
@@ -191,6 +205,7 @@
       .keahlian-grid{grid-template-columns:1fr}
       .keunggulan-grid{grid-template-columns:1fr}
       .cta-title{font-size:1.35rem}
+      .cta-buttons{flex-direction:column;align-items:stretch}
       .cta-btn{width:100%;justify-content:center;font-size:.9rem;padding:13px 20px}
       .keunggulan-title{font-size:1.2rem}
     }
@@ -258,7 +273,7 @@
         </div>
         <h3 class="keahlian-name">Water Treatment</h3>
         <p class="keahlian-desc">Sistem pengolahan air bersih untuk kebutuhan industri, komersial, dan residensial. Mulai dari filter, softener, hingga RO system sesuai standar kualitas air.</p>
-        <a href="/water-treatment/" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- <a href="/water-treatment/" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a> -->
       </div>
       <div class="keahlian-card">
         <div class="keahlian-icon-wrap">
@@ -266,7 +281,7 @@
         </div>
         <h3 class="keahlian-name">STP / IPAL</h3>
         <p class="keahlian-desc">Perancangan dan pembangunan Sewage Treatment Plant serta Instalasi Pengolahan Air Limbah sesuai standar regulasi KLHK dan lingkungan hidup Indonesia.</p>
-        <a href="/stp-ipal/" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- <a href="/stp-ipal/" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a> -->
       </div>
       <div class="keahlian-card">
         <div class="keahlian-icon-wrap">
@@ -274,7 +289,7 @@
         </div>
         <h3 class="keahlian-name">Clean Room</h3>
         <p class="keahlian-desc">Konstruksi dan instalasi ruang bersih berstandar ISO untuk industri farmasi, elektronik, medis, dan produksi presisi tinggi — terjamin bebas dari kontaminasi partikel dan mikroba.</p>
-        <a href="#" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- <a href="/cleanroom/" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a> -->
       </div>
       <div class="keahlian-card">
         <div class="keahlian-icon-wrap">
@@ -282,7 +297,7 @@
         </div>
         <h3 class="keahlian-name">Arsitektur &amp; Interior</h3>
         <p class="keahlian-desc">Desain arsitektur dan interior yang mengintegrasikan estetika modern dengan fungsi teknis tinggi. Dari konsep hingga serah terima proyek secara menyeluruh.</p>
-        <a href="#" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <!-- <a href="/arsitektur/" class="btn-link">Selengkapnya <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a> -->
       </div>
     </div>
   </div>
@@ -339,11 +354,30 @@
   <div class="cta-wrap">
     <p class="cta-label">Mulai Proyek Anda</p>
     <h2 class="cta-title">Siap Menjadi Mitra Strategis Anda?</h2>
-    <a href="https://wa.me/628138006547?text=Halo%2C%20saya%20ingin%20berdiskusi%20mengenai%20proyek%20bersama%20PT.%20Brilian%20Inovatek%20Nusantara"
-       target="_blank" rel="noopener noreferrer" class="cta-btn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.832 9.832 0 01-5.023-1.374l-.36-.214-3.733.977.998-3.64-.235-.374A9.818 9.818 0 012.143 12C2.143 6.55 6.55 2.143 12 2.143S21.857 6.55 21.857 12 17.45 21.857 12 21.857z"/></svg>
-      Hubungi Tim Kami
-    </a>
+    <div class="cta-buttons">
+      <!-- Hubungi Tim Kami — WhatsApp -->
+      <a href="https://wa.me/628138006547?text=Halo%2C%20saya%20ingin%20berdiskusi%20mengenai%20proyek%20bersama%20PT.%20Brilian%20Inovatek%20Nusantara"
+         target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-wa">
+        <!-- WhatsApp icon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.857L.057 23.882a.5.5 0 00.607.65l6.276-1.643A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.832 9.832 0 01-5.023-1.374l-.36-.214-3.733.977.998-3.64-.235-.374A9.818 9.818 0 012.143 12C2.143 6.55 6.55 2.143 12 2.143S21.857 6.55 21.857 12 17.45 21.857 12 21.857z"/>
+        </svg>
+        Hubungi Tim Kami
+      </a>
+
+      <!-- Portofolio Kami — ikon grid/koleksi proyek -->
+      <a href="https://drive.google.com/file/d/1hm5ZfWux3L2lARGuw6vQIGlcMAlFVhn2/view?usp=sharing" class="cta-btn cta-btn-portfolio">
+        <!-- Grid/portfolio icon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        Portofolio Kami
+      </a>
+    </div>
   </div>
 </section>
 
